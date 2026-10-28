@@ -25,4 +25,4 @@ GitHub Actions veröffentlicht die Seite bei jedem Push auf den Branch `main`. D
 - Typische Büroaufgaben im Handwerk und der CaseFlow-Ablauf
 - Anwendungsfälle für Auftragsbestätigungen, Rechnungen, Lieferantennachweise sowie Mängel und Reklamationen
 - Überblick zu Integrationen mit bestehender Unternehmenssoftware
-- Demo-Anfrage per E-Mail an `johann.kern1161@gmail`
+- Demo-Anfrage per E-Mail an `johann.kern1161@gmail.com`
