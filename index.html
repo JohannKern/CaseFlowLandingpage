@@ -168,6 +168,8 @@
     .form-field input::placeholder, .form-field textarea::placeholder { color:#7b8993; }
     .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline:3px solid rgba(15,130,119,.18); border-color:#0f8277; }
     .form-field input:user-invalid, .form-field select:user-invalid { border-color:#d94f45; }
+    .form-error { margin:0; color:#b42318; font-size:.82rem; }
+    .form-error:empty { display:none; }
     .privacy-consent { grid-column:1 / -1; display:flex; align-items:flex-start; gap:10px; color:#536573; font-size:.88rem; }
     .privacy-consent input { width:17px; height:17px; margin:3px 0 0; accent-color:#0f8277; flex:0 0 auto; }
     .demo-form .btn-primary { grid-column:1 / -1; min-height:50px; background:#0f8277; color:#fff; box-shadow:0 12px 26px rgba(15,130,119,.2); }
@@ -418,7 +420,8 @@
             </div>
             <div class="form-field">
               <label for="demo-email">E-Mail *</label>
-              <input id="demo-email" name="email" type="email" autocomplete="email" required />
+              <input id="demo-email" name="email" type="email" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" aria-describedby="demo-email-error" required />
+              <p class="form-error" id="demo-email-error" aria-live="polite"></p>
             </div>
             <div class="form-field">
               <label for="demo-phone">Telefon <span>(optional)</span></label>
@@ -464,6 +467,27 @@
 
   <script>
     const demoForm = document.querySelector('#demo-form');
+    const demoEmail = document.querySelector('#demo-email');
+    const demoEmailError = document.querySelector('#demo-email-error');
+    let demoEmailBlurred = false;
+
+    const updateDemoEmailValidation = () => {
+      const showError = demoEmail.value.length > 0 || demoEmailBlurred;
+      const isValid = demoEmail.validity.valid;
+      demoEmail.setAttribute('aria-invalid', String(showError && !isValid));
+      demoEmailError.textContent = !showError || isValid
+        ? ''
+        : demoEmail.validity.valueMissing
+          ? 'Bitte geben Sie Ihre E-Mail-Adresse ein.'
+          : 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+    };
+
+    demoEmail.addEventListener('input', updateDemoEmailValidation);
+    demoEmail.addEventListener('blur', () => {
+      demoEmailBlurred = true;
+      updateDemoEmailValidation();
+    });
+
     demoForm.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(demoForm);
