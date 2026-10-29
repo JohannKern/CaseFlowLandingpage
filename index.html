@@ -150,13 +150,30 @@
     .l1{width:170px;left:18%;top:31%;transform:rotate(20deg)} .l2{width:170px;left:53%;top:31%;transform:rotate(-20deg)} .l3{width:170px;left:18%;top:67%;transform:rotate(-18deg)} .l4{width:170px;left:52%;top:65%;transform:rotate(18deg)}
 
     .cta { padding:78px 0 100px; }
-    .cta-box { position:relative; overflow:hidden; padding:52px; border-radius:30px; border:1px solid rgba(83,224,194,.18); background:
-      radial-gradient(circle at 15% 20%,rgba(83,224,194,.12),transparent 26%),
-      radial-gradient(circle at 90% 30%,rgba(105,167,255,.11),transparent 28%),
-      rgba(255,255,255,.025); text-align:center; }
-    .cta-box h2 { font-size:clamp(2.4rem,4.5vw,4.7rem); line-height:1; letter-spacing:-.05em; margin:0 auto 18px; max-width:850px; }
-    .cta-box p { max-width:720px; margin:0 auto; color:var(--muted); font-size:1.02rem; }
-    .cta-box .hero-actions { justify-content:center; }
+    .cta-box { display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; padding:clamp(28px,5vw,56px); border-radius:30px; border:1px solid #dce8e7; background:#fff; color:#14252d; box-shadow:var(--shadow); }
+    .cta-intro { padding-top:6px; }
+    .cta-kicker { display:inline-flex; padding:7px 12px; border-radius:999px; background:#e2f3f0; color:#08746d; font-size:.82rem; font-weight:800; }
+    .cta-box h2 { font-size:clamp(2.4rem,4.5vw,3.8rem); line-height:1; letter-spacing:-.05em; margin:12px 0 18px; }
+    .cta-box p { color:#536573; font-size:1rem; }
+    .cta-benefits { display:grid; gap:12px; padding:0; margin:24px 0 0; list-style:none; color:#536573; }
+    .cta-benefits li { display:flex; gap:10px; }
+    .cta-benefits li::before { content:"✓"; color:#07846f; font-weight:900; }
+    .demo-form { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start; }
+    .form-field { display:grid; gap:6px; min-width:0; }
+    .form-field.full { grid-column:1 / -1; }
+    .form-field label { color:#14252d; font-size:.9rem; font-weight:750; }
+    .form-field label span { color:#70818d; font-weight:400; }
+    .form-field input, .form-field select, .form-field textarea { width:100%; min-height:48px; padding:11px 13px; border:1px solid #cbd9dc; border-radius:11px; background:#fff; color:#14252d; font:inherit; }
+    .form-field textarea { min-height:104px; resize:vertical; }
+    .form-field input::placeholder, .form-field textarea::placeholder { color:#7b8993; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline:3px solid rgba(15,130,119,.18); border-color:#0f8277; }
+    .form-field input:user-invalid, .form-field select:user-invalid { border-color:#d94f45; }
+    .privacy-consent { grid-column:1 / -1; display:flex; align-items:flex-start; gap:10px; color:#536573; font-size:.88rem; }
+    .privacy-consent input { width:17px; height:17px; margin:3px 0 0; accent-color:#0f8277; flex:0 0 auto; }
+    .demo-form .btn-primary { grid-column:1 / -1; min-height:50px; background:#0f8277; color:#fff; box-shadow:0 12px 26px rgba(15,130,119,.2); }
+    .demo-form .btn-primary:hover { background:#0b7068; }
+    .form-note, .form-status { grid-column:1 / -1; margin:0; color:#647582; font-size:.82rem; }
+    .form-status { color:#08746d; font-weight:700; }
     .footer { border-top:1px solid var(--line); padding:28px 0 38px; color:#73859a; font-size:.82rem; }
     .footer-inner { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
 
@@ -188,7 +205,9 @@
       .metrics { grid-template-columns:1fr; }
       .diff { grid-template-columns:1fr; }
       .flow { grid-template-columns:1fr; }
-      .cta-box { padding:36px 20px; }
+      .cta-box { grid-template-columns:1fr; gap:28px; padding:30px 20px; }
+      .demo-form { grid-template-columns:1fr; }
+      .form-field.full, .privacy-consent, .demo-form .btn-primary, .form-note, .form-status { grid-column:1; }
       .system-map { transform:scale(.88); transform-origin:center; margin:-20px -25px; }
       .nav-inner { height:66px; }
       .brand span:last-child { display:none; }
@@ -378,13 +397,58 @@
     <section class="cta" id="demo">
       <div class="wrap">
         <div class="cta-box reveal">
-          <div class="section-kicker">From inbox to done.</div>
-          <h2>Weniger suchen. Weniger übertragen. Weniger hinterherlaufen.</h2>
-          <p>Sehen Sie in einer kurzen Demo, wie CaseFlow aus E-Mails und PDFs strukturierte Vorgänge macht und Ihr Team nur noch dort einbindet, wo wirklich eine Entscheidung nötig ist.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:johann.kern1161@gmail.com?subject=Demo%20CaseFlow%20AI">Demo anfragen →</a>
-            <a class="btn btn-ghost" href="#top">Nochmal von oben</a>
+          <div class="cta-intro">
+            <div class="cta-kicker">Unverbindlich & kostenlos</div>
+            <h2>Demo anfordern</h2>
+            <p>Sehen Sie in einer persönlichen Vorführung, wie CaseFlow aus E-Mails und PDFs strukturierte Vorgänge macht.</p>
+            <ul class="cta-benefits">
+              <li>Live-Durchlauf vom Eingang bis zum fertigen Vorgang</li>
+              <li>Antworten zu Datenschutz, Umfang und Einsatz in Ihrem Umfeld</li>
+              <li>Rückmeldung in der Regel innerhalb von zwei Werktagen</li>
+            </ul>
           </div>
+          <form class="demo-form" id="demo-form">
+            <div class="form-field">
+              <label for="demo-name">Name *</label>
+              <input id="demo-name" name="name" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="demo-company">Firma <span>(optional)</span></label>
+              <input id="demo-company" name="company" autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label for="demo-email">E-Mail *</label>
+              <input id="demo-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-field">
+              <label for="demo-phone">Telefon <span>(optional)</span></label>
+              <input id="demo-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="form-field">
+              <label for="demo-environment">Ihr Access-Umfeld</label>
+              <select id="demo-environment" name="environment">
+                <option value="">Bitte wählen ...</option>
+                <option>Microsoft Access</option>
+                <option>Andere Datenbank</option>
+                <option>Noch unklar</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="demo-time">Wunschzeitraum <span>(optional)</span></label>
+              <input id="demo-time" name="timeframe" placeholder="z. B. nächste Woche, vormittags" />
+            </div>
+            <div class="form-field full">
+              <label for="demo-message">Nachricht <span>(optional)</span></label>
+              <textarea id="demo-message" name="message" placeholder="Was möchten Sie mit der Analyse erreichen?"></textarea>
+            </div>
+            <label class="privacy-consent">
+              <input type="checkbox" name="privacy" required />
+              <span>Ich bin damit einverstanden, dass Sie mich zur Demo-Anfrage kontaktieren. *</span>
+            </label>
+            <button class="btn btn-primary" type="submit">Demo anfordern</button>
+            <p class="form-note">* Pflichtfelder. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie nur noch abschicken müssen.</p>
+            <p class="form-status" id="demo-form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
@@ -395,6 +459,30 @@
   </footer>
 
   <script>
+    const demoForm = document.querySelector('#demo-form');
+    demoForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const formData = new FormData(demoForm);
+      const fields = [
+        ['Name', formData.get('name')],
+        ['Firma', formData.get('company')],
+        ['E-Mail', formData.get('email')],
+        ['Telefon', formData.get('phone')],
+        ['Access-Umfeld', formData.get('environment')],
+        ['Wunschzeitraum', formData.get('timeframe')],
+        ['Nachricht', formData.get('message')]
+      ];
+      const body = fields
+        .filter(([, value]) => value)
+        .map(([label, value]) => `${label}: ${value}`)
+        .join('\n');
+      const subject = encodeURIComponent('Demo-Anfrage CaseFlow AI');
+      const encodedBody = encodeURIComponent(body);
+      document.querySelector('#demo-form-status').textContent =
+        'Ihr E-Mail-Programm wird geöffnet. Bitte senden Sie die vorbereitete Nachricht dort ab.';
+      window.location.href = `mailto:johann.kern1161@gmail.com?subject=${subject}&body=${encodedBody}`;
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
