@@ -400,10 +400,10 @@
           <div class="cta-intro">
             <div class="cta-kicker">Unverbindlich & kostenlos</div>
             <h2>Demo anfordern</h2>
-            <p>Sehen Sie in einer persönlichen Vorführung, wie CaseFlow aus E-Mails und PDFs strukturierte Vorgänge macht.</p>
+            <p>Sehen Sie in einer persönlichen Vorführung, wie CaseFlow Büroabläufe in Handwerksbetrieben rund um E-Mails und Dokumente vereinfacht.</p>
             <ul class="cta-benefits">
-              <li>Live-Durchlauf vom Eingang bis zum fertigen Vorgang</li>
-              <li>Antworten zu Datenschutz, Umfang und Einsatz in Ihrem Umfeld</li>
+              <li>Live-Durchlauf vom Dokumenteneingang bis zur passenden Aufgabe</li>
+              <li>Beispiele zu Rechnungen, Auftragsbestätigungen und weiteren Büroprozessen</li>
               <li>Rückmeldung in der Regel innerhalb von zwei Werktagen</li>
             </ul>
           </div>
@@ -413,7 +413,7 @@
               <input id="demo-name" name="name" autocomplete="name" required />
             </div>
             <div class="form-field">
-              <label for="demo-company">Firma <span>(optional)</span></label>
+              <label for="demo-company">Betrieb / Unternehmen <span>(optional)</span></label>
               <input id="demo-company" name="company" autocomplete="organization" />
             </div>
             <div class="form-field">
@@ -425,12 +425,16 @@
               <input id="demo-phone" name="phone" type="tel" autocomplete="tel" />
             </div>
             <div class="form-field">
-              <label for="demo-environment">Ihr Access-Umfeld</label>
-              <select id="demo-environment" name="environment">
+              <label for="demo-process">Welche Prozesse möchten Sie vereinfachen? <span>(optional)</span></label>
+              <select id="demo-process" name="process">
                 <option value="">Bitte wählen ...</option>
-                <option>Microsoft Access</option>
-                <option>Andere Datenbank</option>
-                <option>Noch unklar</option>
+                <option>Auftragsbestätigungen prüfen</option>
+                <option>Rechnungen und Belege bearbeiten</option>
+                <option>Lieferantenunterlagen verwalten</option>
+                <option>Mängel und Reklamationen bearbeiten</option>
+                <option>E-Mails und Dokumente zu Vorgängen zuordnen</option>
+                <option>Mehrere dieser Prozesse</option>
+                <option>Noch offen</option>
               </select>
             </div>
             <div class="form-field">
@@ -439,7 +443,7 @@
             </div>
             <div class="form-field full">
               <label for="demo-message">Nachricht <span>(optional)</span></label>
-              <textarea id="demo-message" name="message" placeholder="Was möchten Sie mit der Analyse erreichen?"></textarea>
+              <textarea id="demo-message" name="message" placeholder="Welche Dokumente, Abläufe oder Systeme sind für Ihren Betrieb besonders wichtig?"></textarea>
             </div>
             <label class="privacy-consent">
               <input type="checkbox" name="privacy" required />
@@ -465,10 +469,10 @@
       const formData = new FormData(demoForm);
       const fields = [
         ['Name', formData.get('name')],
-        ['Firma', formData.get('company')],
+        ['Betrieb / Unternehmen', formData.get('company')],
         ['E-Mail', formData.get('email')],
         ['Telefon', formData.get('phone')],
-        ['Access-Umfeld', formData.get('environment')],
+        ['Interessante Prozesse', formData.get('process')],
         ['Wunschzeitraum', formData.get('timeframe')],
         ['Nachricht', formData.get('message')]
       ];
