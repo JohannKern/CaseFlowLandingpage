@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CaseFlow AI reduziert Bürochaos im Handwerk: E-Mails, PDFs, Auftragsbestätigungen, Rechnungen und Lieferantendokumente automatisch erfassen, prüfen und weiterverarbeiten." />
-  <title>CaseFlow AI – Weniger Büro. Mehr Zeit fürs Handwerk.</title>
+  <meta name="description" content="CaseFlow AI reduces office workload for trade businesses: automatically capture, check, and process emails, PDFs, order confirmations, invoices, and supplier documents." />
+  <title>CaseFlow AI – Less paperwork. More time for your craft.</title>
   <style>
     :root {
       --bg: #07111f;
@@ -247,7 +247,7 @@
         <div class="language-switch">
           <select id="language-select" aria-label="Sprache wählen">
             <option value="de">Deutsch</option>
-            <option value="en">English</option>
+            <option value="en" selected>English</option>
           </select>
         </div>
         <a class="btn btn-primary" href="#demo">Demo anfragen</a>
@@ -683,7 +683,15 @@
       updateDemoEmailValidation();
     };
 
-    languageSelect.addEventListener('change', () => setLanguage(languageSelect.value));
+    languageSelect.addEventListener('change', () => {
+      const nextLanguage = languageSelect.value;
+      setLanguage(nextLanguage);
+      try {
+        localStorage.setItem('caseflow-language', nextLanguage);
+      } catch (error) {
+        // Ignore storage failures (e.g. browser privacy mode) and keep the current session language.
+      }
+    });
 
     const demoForm = document.querySelector('#demo-form');
     const demoEmail = document.querySelector('#demo-email');
@@ -700,6 +708,24 @@
           ? (document.documentElement.lang === 'en' ? 'Please enter your email address.' : 'Bitte geben Sie Ihre E-Mail-Adresse ein.')
           : (document.documentElement.lang === 'en' ? 'Please enter a valid email address.' : 'Bitte geben Sie eine gültige E-Mail-Adresse ein.');
     };
+
+    const getStoredLanguage = () => {
+      try {
+        const savedLanguage = localStorage.getItem('caseflow-language');
+        return savedLanguage === 'de' || savedLanguage === 'en' ? savedLanguage : null;
+      } catch (error) {
+        return null;
+      }
+    };
+
+    const resolveInitialLanguage = () => {
+      const storedLanguage = getStoredLanguage();
+      return storedLanguage || 'en';
+    };
+
+    const initialLanguage = resolveInitialLanguage();
+    languageSelect.value = initialLanguage;
+    setLanguage(initialLanguage);
 
     demoEmail.addEventListener('input', updateDemoEmailValidation);
     demoEmail.addEventListener('blur', () => {
