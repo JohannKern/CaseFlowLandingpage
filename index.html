@@ -53,6 +53,10 @@
     .nav-links { display:flex; gap:26px; color:var(--muted); font-size:.95rem; }
     .nav-links a:hover { color:var(--text); }
     .nav-actions { display:flex; align-items:center; gap:10px; }
+    .language-switch { position:relative; }
+    .language-switch select { appearance:none; border:1px solid var(--line); border-radius:13px; padding:12px 32px 12px 14px; color:#dbe5f0; background:#0b1728; font:inherit; font-weight:700; cursor:pointer; }
+    .language-switch::after { content:"⌄"; position:absolute; right:12px; top:50%; transform:translateY(-58%); color:#dbe5f0; pointer-events:none; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; border-radius:13px; padding:13px 18px; border:1px solid transparent; font-weight:700; transition:.2s ease; cursor:pointer; }
     .btn-primary { background: linear-gradient(135deg,var(--brand),#73edcf); color:#072018; box-shadow:0 15px 35px rgba(83,224,194,.18); }
     .btn-primary:hover { transform:translateY(-1px); box-shadow:0 18px 40px rgba(83,224,194,.28); }
@@ -213,6 +217,15 @@
       .system-map { transform:scale(.88); transform-origin:center; margin:-20px -25px; }
       .nav-inner { height:66px; }
       .brand span:last-child { display:none; }
+      .nav-inner { gap:12px; }
+      .nav-actions { gap:7px; }
+      .nav-actions .btn-primary { padding:10px 12px; font-size:.88rem; }
+      .language-switch select { padding:9px 26px 9px 10px; font-size:.88rem; }
+      .hero-grid > * { min-width:0; }
+      .hero-actions, .trust-row { max-width:100%; }
+      .app { max-width:100%; }
+      .app-body, .main-panel, .usecases > * { min-width:0; }
+      .usecase-head h3 { min-width:0; }
     }
   </style>
 </head>
@@ -230,6 +243,13 @@
       </nav>
       <div class="nav-actions">
         <a class="btn btn-ghost" href="#usecases">Beispiele ansehen</a>
+        <label class="sr-only" for="language-select">Sprache / Language</label>
+        <div class="language-switch">
+          <select id="language-select" aria-label="Sprache wählen">
+            <option value="de">Deutsch</option>
+            <option value="en">English</option>
+          </select>
+        </div>
         <a class="btn btn-primary" href="#demo">Demo anfragen</a>
       </div>
     </div>
@@ -466,6 +486,205 @@
   </footer>
 
   <script>
+    const translations = {
+      'Warum CaseFlow': 'Why CaseFlow',
+      "So funktioniert's": 'How it works',
+      'Anwendungsfälle': 'Use cases',
+      'Integration': 'Integration',
+      'Beispiele ansehen': 'See examples',
+      'Demo anfragen': 'Request a demo',
+      'KI für Büroprozesse im Handwerk': 'AI for administrative work in the trades',
+      'Weniger Büro.': 'Less paperwork.',
+      'Mehr Zeit fürs Handwerk.': 'More time for your craft.',
+      'CaseFlow liest E-Mails und PDFs, erkennt wichtige Daten, findet Abweichungen und startet automatisch den passenden Vorgang. Ihr Team prüft nur noch, was wirklich Aufmerksamkeit braucht.': 'CaseFlow reads emails and PDFs, identifies key information, spots discrepancies, and automatically starts the right workflow. Your team only reviews what truly needs attention.',
+      '15-Minuten-Demo anfragen →': 'Request a 15-minute demo →',
+      'So funktioniert CaseFlow': 'How CaseFlow works',
+      'Keine neue Komplettsoftware. CaseFlow ergänzt Ihre bestehende Büro- und Unternehmenssoftware.': 'No need for an entirely new software suite. CaseFlow complements your existing office and business software.',
+      'Weniger Abtippen': 'Less manual data entry',
+      'Weniger Nachfassen': 'Fewer follow-ups',
+      'Klare Verantwortlichkeiten': 'Clear ownership',
+      'CaseFlow · Vorgang AB-2026-10482': 'CaseFlow · Case AB-2026-10482',
+      'Arbeitsbereich': 'Workspace',
+      '▣ Vorgänge': '▣ Cases',
+      '✉ Eingang': '✉ Inbox',
+      '✓ Aufgaben': '✓ Tasks',
+      '⌁ Dokumente': '⌁ Documents',
+      'Automatisierung': 'Automation',
+      '⚙ Workflows': '⚙ Workflows',
+      '↗ Integrationen': '↗ Integrations',
+      'Auftragsbestätigung': 'Purchase order confirmation',
+      'Prüfung erforderlich': 'Review required',
+      'Gesamtbetrag': 'Total amount',
+      'Lieferdatum': 'Delivery date',
+      'Zahlungsziel': 'Payment terms',
+      '2 Abweichungen erkannt': '2 discrepancies found',
+      'Bestellung': 'Purchase order',
+      'Bestätigung': 'Confirmation',
+      'Gewünschter Termin': 'Requested date',
+      'Bestätigter Termin': 'Confirmed date',
+      'Preisabweichung prüfen': 'Review price discrepancy',
+      'Liefertermin bestätigen': 'Confirm delivery date',
+      'OFFEN': 'OPEN',
+      'Freigeben': 'Approve',
+      'Rückfrage': 'Ask a question',
+      'Ablehnen': 'Reject',
+      'Der Büroalltag': 'The day-to-day office workload',
+      'Ihr Betrieb läuft.': 'Your business is running.',
+      'Das Büro läuft hinterher.': 'Your office is struggling to keep up.',
+      'Bestellungen, Auftragsbestätigungen, Rechnungen, Zertifikate und Rückfragen kommen über E-Mail und PDF. Danach beginnt oft die eigentliche Handarbeit – nur eben im Büro.': 'Orders, order confirmations, invoices, certificates, and queries arrive by email and PDF. That is often when the real manual work begins—just in the office.',
+      'Dokumente lesen & Daten abtippen': 'Read documents and enter data',
+      'Bestellnummern, Beträge, Termine oder Lieferanteninformationen werden manuell aus PDFs übernommen.': 'Order numbers, amounts, dates, and supplier information are manually copied from PDFs.',
+      'Abweichungen selbst suchen': 'Find discrepancies manually',
+      'Preise, Mengen und Liefertermine müssen mit Bestellungen oder vorhandenen Daten verglichen werden.': 'Prices, quantities, and delivery dates have to be checked against orders or existing records.',
+      'Offenen Punkten hinterherlaufen': 'Chase outstanding items',
+      'Freigaben, fehlende Unterlagen und Fristen verteilen sich auf Postfächer, Excel-Listen und Zurufe.': 'Approvals, missing documents, and deadlines are scattered across inboxes, spreadsheets, and verbal reminders.',
+      'Heute': 'Today',
+      '✕ E-Mail öffnen und Anhänge suchen': '✕ Open emails and look for attachments',
+      '✕ PDF vollständig lesen': '✕ Read the entire PDF',
+      '✕ Daten manuell übertragen': '✕ Transfer data manually',
+      '✕ Abweichungen selbst erkennen': '✕ Spot discrepancies yourself',
+      '✕ Kollegen erinnern und nachfragen': '✕ Remind colleagues and follow up',
+      'Mit CaseFlow': 'With CaseFlow',
+      '✓ Eingang automatisch erkennen': '✓ Automatically detect incoming documents',
+      '✓ Daten automatisch auslesen': '✓ Extract data automatically',
+      '✓ Regeln und Abweichungen prüfen': '✓ Check rules and discrepancies',
+      '✓ Aufgaben automatisch verteilen': '✓ Assign tasks automatically',
+      '✓ Nur echte Ausnahmen entscheiden': '✓ Make decisions only on genuine exceptions',
+      'Vom Eingang zum erledigten Vorgang': 'From incoming document to completed case',
+      'Eine E-Mail kommt rein.': 'An email arrives.',
+      'CaseFlow macht den Rest bereit.': 'CaseFlow gets the rest ready.',
+      'Die KI übernimmt repetitive Schritte. Geschäftskritische Entscheidungen bleiben bei Ihren Mitarbeitern.': 'AI handles repetitive steps. Business-critical decisions stay with your team.',
+      'Eingang erfassen': 'Capture incoming documents',
+      'E-Mail, PDF, Scan, Upload oder Formular.': 'Email, PDF, scan, upload, or form.',
+      'Inhalt verstehen': 'Understand the content',
+      'Dokumenttyp, Beträge, Nummern, Termine und weitere Daten erkennen.': 'Identify document types, amounts, numbers, dates, and other data.',
+      'Automatisch prüfen': 'Run automatic checks',
+      'Pflichtangaben, Abweichungen, Fristen und Regeln kontrollieren.': 'Check required information, discrepancies, deadlines, and rules.',
+      'Aufgabe erzeugen': 'Create a task',
+      'Nur wenn etwas geklärt, freigegeben oder korrigiert werden muss.': 'Only when something needs clarification, approval, or correction.',
+      'Ergebnis weitergeben': 'Pass on the result',
+      'Daten und Status an vorhandene Systeme übergeben.': 'Send data and status to your existing systems.',
+      'Konkreter Nutzen': 'Practical benefits',
+      'Keine KI-Spielerei.': 'No AI gimmicks.',
+      'Arbeit, die heute wirklich anfällt.': 'Real work that needs doing today.',
+      'CaseFlow setzt dort an, wo Handwerksbetriebe täglich Zeit verlieren: zwischen Posteingang, Dokument und erledigtem Vorgang.': 'CaseFlow tackles where trade businesses lose time every day: between the inbox, the document, and the completed case.',
+      'Auftragsbestätigungen': 'Order confirmations',
+      'Einkauf': 'Purchasing',
+      'Bestellnummer und Lieferant automatisch erkennen': 'Automatically identify order number and supplier',
+      'Preise, Mengen und Liefertermine vergleichen': 'Compare prices, quantities, and delivery dates',
+      'Abweichungen hervorheben': 'Highlight discrepancies',
+      'Nur relevante Fälle zur Prüfung geben': 'Send only relevant cases for review',
+      'Rechnungen & Belege': 'Invoices and receipts',
+      'Büro': 'Office',
+      'Rechnungsdaten automatisch auslesen': 'Extract invoice data automatically',
+      'Bestellnummer und Beträge zuordnen': 'Match order numbers and amounts',
+      'Freigaben strukturiert einholen': 'Request approvals in a structured way',
+      'Offene oder überfällige Fälle anzeigen': 'Show open or overdue cases',
+      'Lieferanten & Nachweise': 'Suppliers and certificates',
+      'Beschaffung': 'Procurement',
+      'Fehlende Unterlagen erkennen': 'Identify missing documents',
+      'Zertifikate und Nachweise zentral zuordnen': 'Organize certificates and evidence centrally',
+      'Ablaufdaten überwachen': 'Monitor expiry dates',
+      'Wiedervorlagen automatisch erzeugen': 'Create follow-up reminders automatically',
+      'Mängel & Reklamationen': 'Defects and complaints',
+      'Service': 'Service',
+      'E-Mails, Fotos und Dokumente einem Vorgang zuordnen': 'Link emails, photos, and documents to a case',
+      'Verantwortliche und Fristen festlegen': 'Assign owners and set deadlines',
+      'Status jederzeit sichtbar machen': 'Keep status visible at all times',
+      'Bearbeitung nachvollziehbar dokumentieren': 'Keep a clear record of all actions',
+      'Passt in Ihre bestehende IT': 'Fits your existing IT',
+      'Ihre Software bleibt.': 'Keep your software.',
+      'CaseFlow übernimmt die Arbeit dazwischen.': 'CaseFlow handles the work in between.',
+      'CaseFlow ist nicht als Ersatz für ERP, Buchhaltung, DMS oder Ihre Handwerkersoftware gedacht. Die Plattform verbindet eingehende Dokumente, Mitarbeiter und vorhandene Systeme.': 'CaseFlow is not a replacement for your ERP, accounting, document management, or trade software. It connects incoming documents, your team, and the systems you already use.',
+      'CSV-/Excel-Export': 'CSV/Excel export',
+      'Bestehende Systeme ergänzen': 'Works with existing systems',
+      'intelligente Prozessschicht': 'intelligent workflow layer',
+      'E-Mail & PDFs': 'Email and PDFs',
+      'ERP / Handwerkersoftware': 'ERP / trade software',
+      'Buchhaltung': 'Accounting',
+      'DMS / Ablage': 'DMS / file storage',
+      'Mitarbeiter & Freigaben': 'Team and approvals',
+      'Unverbindlich & kostenlos': 'No obligation and free',
+      'Demo anfordern': 'Request a demo',
+      'Sehen Sie in einer persönlichen Vorführung, wie CaseFlow Büroabläufe in Handwerksbetrieben rund um E-Mails und Dokumente vereinfacht.': 'See in a personal walkthrough how CaseFlow simplifies email- and document-based office workflows for trade businesses.',
+      'Live-Durchlauf vom Dokumenteneingang bis zur passenden Aufgabe': 'A live walkthrough from incoming document to the right task',
+      'Beispiele zu Rechnungen, Auftragsbestätigungen und weiteren Büroprozessen': 'Examples covering invoices, order confirmations, and other office workflows',
+      'Rückmeldung in der Regel innerhalb von zwei Werktagen': 'We usually respond within two business days',
+      'Name *': 'Name *',
+      'Betrieb / Unternehmen': 'Business / company',
+      '(optional)': '(optional)',
+      'E-Mail *': 'Email *',
+      'Telefon': 'Phone',
+      'Welche Prozesse möchten Sie vereinfachen?': 'Which processes would you like to simplify?',
+      'Bitte wählen ...': 'Please select ...',
+      'Auftragsbestätigungen prüfen': 'Review order confirmations',
+      'Rechnungen und Belege bearbeiten': 'Process invoices and receipts',
+      'Lieferantenunterlagen verwalten': 'Manage supplier documents',
+      'Mängel und Reklamationen bearbeiten': 'Handle defects and complaints',
+      'E-Mails und Dokumente zu Vorgängen zuordnen': 'Link emails and documents to cases',
+      'Mehrere dieser Prozesse': 'Several of these processes',
+      'Noch offen': 'Not sure yet',
+      'Wunschzeitraum': 'Preferred timeframe',
+      'Nachricht': 'Message',
+      'Ich bin damit einverstanden, dass Sie mich zur Demo-Anfrage kontaktieren. *': 'I agree to be contacted about my demo request. *',
+      '* Pflichtfelder. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie nur noch abschicken müssen.': '* Required fields. Submitting opens your email app with a prepared message for you to send.',
+      'Intelligente Prozessautomatisierung für dokumentengetriebene Arbeit': 'Intelligent process automation for document-driven work'
+    };
+
+    const originalTextNodes = new Map();
+    const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    while (textWalker.nextNode()) {
+      originalTextNodes.set(textWalker.currentNode, textWalker.currentNode.nodeValue);
+    }
+
+    const languageSelect = document.querySelector('#language-select');
+    const demoTime = document.querySelector('#demo-time');
+    const demoMessage = document.querySelector('#demo-message');
+    const pageDescription = document.querySelector('meta[name="description"]');
+    const originalPageTitle = document.title;
+    const originalPageDescription = pageDescription.content;
+    const originalTimePlaceholder = demoTime.placeholder;
+    const originalMessagePlaceholder = demoMessage.placeholder;
+
+    const setLanguage = language => {
+      document.documentElement.lang = language;
+      for (const [node, originalText] of originalTextNodes) {
+        const trimmedText = originalText.trim();
+        const translatedText = language === 'en' ? translations[trimmedText] : trimmedText;
+        if (translatedText !== undefined) {
+          node.nodeValue = originalText.replace(trimmedText, translatedText);
+        }
+      }
+
+      document.title = language === 'en'
+        ? 'CaseFlow AI – Less paperwork. More time for your craft.'
+        : originalPageTitle;
+      pageDescription.content = language === 'en'
+        ? 'CaseFlow AI reduces office workload for trade businesses: automatically capture, check, and process emails, PDFs, order confirmations, invoices, and supplier documents.'
+        : originalPageDescription;
+      demoTime.placeholder = language === 'en'
+        ? 'e.g. next week, mornings'
+        : originalTimePlaceholder;
+      demoMessage.placeholder = language === 'en'
+        ? 'Which documents, workflows, or systems matter most to your business?'
+        : originalMessagePlaceholder;
+      document.querySelector('.brand').setAttribute(
+        'aria-label',
+        language === 'en' ? 'CaseFlow AI home' : 'CaseFlow AI Startseite'
+      );
+      document.querySelector('.nav-links').setAttribute(
+        'aria-label',
+        language === 'en' ? 'Main navigation' : 'Hauptnavigation'
+      );
+      languageSelect.setAttribute(
+        'aria-label',
+        language === 'en' ? 'Choose language' : 'Sprache wählen'
+      );
+      updateDemoEmailValidation();
+    };
+
+    languageSelect.addEventListener('change', () => setLanguage(languageSelect.value));
+
     const demoForm = document.querySelector('#demo-form');
     const demoEmail = document.querySelector('#demo-email');
     const demoEmailError = document.querySelector('#demo-email-error');
@@ -478,8 +697,8 @@
       demoEmailError.textContent = !showError || isValid
         ? ''
         : demoEmail.validity.valueMissing
-          ? 'Bitte geben Sie Ihre E-Mail-Adresse ein.'
-          : 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+          ? (document.documentElement.lang === 'en' ? 'Please enter your email address.' : 'Bitte geben Sie Ihre E-Mail-Adresse ein.')
+          : (document.documentElement.lang === 'en' ? 'Please enter a valid email address.' : 'Bitte geben Sie eine gültige E-Mail-Adresse ein.');
     };
 
     demoEmail.addEventListener('input', updateDemoEmailValidation);
@@ -491,23 +710,26 @@
     demoForm.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(demoForm);
+      const english = document.documentElement.lang === 'en';
       const fields = [
-        ['Name', formData.get('name')],
-        ['Betrieb / Unternehmen', formData.get('company')],
-        ['E-Mail', formData.get('email')],
-        ['Telefon', formData.get('phone')],
-        ['Interessante Prozesse', formData.get('process')],
-        ['Wunschzeitraum', formData.get('timeframe')],
-        ['Nachricht', formData.get('message')]
+        [english ? 'Name' : 'Name', formData.get('name')],
+        [english ? 'Business / company' : 'Betrieb / Unternehmen', formData.get('company')],
+        [english ? 'Email' : 'E-Mail', formData.get('email')],
+        [english ? 'Phone' : 'Telefon', formData.get('phone')],
+        [english ? 'Processes of interest' : 'Interessante Prozesse', formData.get('process')],
+        [english ? 'Preferred timeframe' : 'Wunschzeitraum', formData.get('timeframe')],
+        [english ? 'Message' : 'Nachricht', formData.get('message')]
       ];
       const body = fields
         .filter(([, value]) => value)
         .map(([label, value]) => `${label}: ${value}`)
         .join('\n');
-      const subject = encodeURIComponent('Demo-Anfrage CaseFlow AI');
+      const subject = encodeURIComponent(english ? 'CaseFlow AI demo request' : 'Demo-Anfrage CaseFlow AI');
       const encodedBody = encodeURIComponent(body);
       document.querySelector('#demo-form-status').textContent =
-        'Ihr E-Mail-Programm wird geöffnet. Bitte senden Sie die vorbereitete Nachricht dort ab.';
+        english
+          ? 'Your email app will open. Please send the prepared message from there.'
+          : 'Ihr E-Mail-Programm wird geöffnet. Bitte senden Sie die vorbereitete Nachricht dort ab.';
       window.location.href = `mailto:johann.kern1161@gmail.com?subject=${subject}&body=${encodedBody}`;
     });
 
