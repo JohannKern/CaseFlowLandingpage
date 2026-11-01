@@ -52,6 +52,18 @@
     .brand-mark:after { width:12px; height:6px; left:9px; top:19px; }
     .nav-links { display:flex; gap:26px; color:var(--muted); font-size:.95rem; }
     .nav-links a:hover { color:var(--text); }
+    .about-mobile-trigger { display:none; }
+    .about-panel {
+      position:absolute; top:calc(100% + 10px); left:50%; z-index:51;
+      display:block;
+      width:min(var(--max), calc(100vw - 40px)); max-height:calc(100vh - 100px);
+      overflow:auto; padding:24px; border:1px solid var(--line); border-radius:var(--radius);
+      background:#e9edf0; color:#14202b; box-shadow:var(--shadow); transform:translateX(-50%);
+    }
+    .about-panel[hidden] { display:none; }
+    .about-portrait { float:left; width:80px; height:89px; margin:0 18px 10px 0; border-radius:16px; object-fit:cover; object-position:center 24%; background:#e9edf0; }
+    .about-copy p { margin:0 0 2px; color:#263746; font-size:.95rem; font-weight:500; line-height:1.38; text-align:justify; hyphens:auto; }
+    .about-copy p:last-child { margin-bottom:0; }
     .nav-actions { display:flex; align-items:center; gap:10px; }
     .language-switch { position:relative; }
     .language-switch select { appearance:none; border:1px solid var(--line); border-radius:13px; padding:12px 32px 12px 14px; color:#dbe5f0; background:#0b1728; font:inherit; font-weight:700; cursor:pointer; }
@@ -188,6 +200,7 @@
 
     @media (max-width: 980px) {
       .nav-links { display:none; }
+      .about-mobile-trigger { display:inline-flex; }
       .hero-grid, .integration { grid-template-columns:1fr; }
       .hero { padding-top:60px; }
       .product-shell { max-width:760px; }
@@ -201,6 +214,7 @@
     @media (max-width: 700px) {
       .wrap { width:min(100% - 24px, var(--max)); }
       .nav-actions .btn-ghost { display:none; }
+      .nav-actions .about-mobile-trigger { display:inline-flex; }
       .hero { padding:44px 0 26px; }
       h1 { font-size:clamp(3rem,16vw,4.6rem); }
       .hero-copy { font-size:1rem; }
@@ -221,6 +235,9 @@
       .nav-actions { gap:7px; }
       .nav-actions .btn-primary { padding:10px 12px; font-size:.88rem; }
       .language-switch select { padding:9px 26px 9px 10px; font-size:.88rem; }
+      .about-mobile-trigger { padding:9px 10px; font-size:.84rem; }
+      .about-panel { padding:18px; width:calc(100vw - 24px); }
+      .about-portrait { width:70px; height:78px; margin-right:12px; }
       .hero-grid > * { min-width:0; }
       .hero-actions, .trust-row { max-width:100%; }
       .app { max-width:100%; }
@@ -242,7 +259,7 @@
         <a href="#integration">Integration</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-ghost" href="#usecases">Beispiele ansehen</a>
+        <button type="button" class="btn btn-ghost about-trigger about-mobile-trigger" aria-controls="about-panel" aria-expanded="false">Über mich</button>
         <label class="sr-only" for="language-select">Sprache / Language</label>
         <div class="language-switch">
           <select id="language-select" aria-label="Sprache wählen">
@@ -251,6 +268,16 @@
           </select>
         </div>
         <a class="btn btn-primary" href="#demo">Demo anfragen</a>
+      </div>
+    </div>
+    <div class="about-panel wrap" id="about-panel" aria-label="Über mich" hidden>
+      <div class="about-copy">
+        <img class="about-portrait" src="assets/johann-kern.png" alt="Porträt von Johann Kern" />
+        <p>Mein Name ist Johann Kern. Ich bin in der technischen Redaktion im Sondermaschinenbau tätig und auf die Erstellung präziser Betriebs- und Anlagendokumentationen für anspruchsvolle Produktionsanlagen spezialisiert, insbesondere in der Automobilindustrie.</p>
+        <p>Durch meine langjährige Erfahrung in Programmierung, Inbetriebnahme und Produktionsoptimierung sowie mehrfache Einsätze in China verbinde ich technisches Verständnis mit praktischer Prozesserfahrung.</p>
+        <p>Darüber hinaus habe ich eigenverantwortlich komplexe Softwarelösungen zur Automatisierung geschäftskritischer Geschäftsprozesse entwickelt – von der Provisionsabrechnung und Bankenlogistik bis hin zu Reporting und Datenanalyse. Mein technisches Spektrum reicht dabei von Microsoft Access und VBA, C++ bis hin zu Python-KI.</p>
+        <p>Eine besondere Leidenschaft gilt der Entwicklung moderner webbasierter Anwendungen. Mit Python und Django entwickle ich leistungsfähige Webanwendungen, arbeite mit PostgreSQL-Datenbanken und setze auf Docker für eine reproduzierbare und zuverlässige Bereitstellung meiner Lösungen.</p>
+        <p>Mein Anspruch ist es, komplexe technische und betriebliche Zusammenhänge verständlich, präzise und praxisnah aufzubereiten und effiziente, zuverlässige Lösungen zu schaffen.</p>
       </div>
     </div>
   </header>
@@ -491,7 +518,12 @@
       "So funktioniert's": 'How it works',
       'Anwendungsfälle': 'Use cases',
       'Integration': 'Integration',
-      'Beispiele ansehen': 'See examples',
+      'Über mich': 'About me',
+      'Mein Name ist Johann Kern. Ich bin in der technischen Redaktion im Sondermaschinenbau tätig und auf die Erstellung präziser Betriebs- und Anlagendokumentationen für anspruchsvolle Produktionsanlagen spezialisiert, insbesondere in der Automobilindustrie.': 'My name is Johann Kern. I work in technical documentation for special-purpose machinery and specialize in creating precise operating and equipment documentation for demanding production facilities, particularly in the automotive industry.',
+      'Durch meine langjährige Erfahrung in Programmierung, Inbetriebnahme und Produktionsoptimierung sowie mehrfache Einsätze in China verbinde ich technisches Verständnis mit praktischer Prozesserfahrung.': 'My extensive experience in programming, commissioning, and production optimization, along with several assignments in China, combines technical understanding with practical process expertise.',
+      'Darüber hinaus habe ich eigenverantwortlich komplexe Softwarelösungen zur Automatisierung geschäftskritischer Geschäftsprozesse entwickelt – von der Provisionsabrechnung und Bankenlogistik bis hin zu Reporting und Datenanalyse. Mein technisches Spektrum reicht dabei von Microsoft Access und VBA, C++ bis hin zu Python-KI.': 'I have also independently developed complex software solutions to automate business-critical processes, from commission accounting and banking logistics to reporting and data analysis. My technical experience ranges from Microsoft Access and VBA, and C++ to Python-based AI.',
+      'Eine besondere Leidenschaft gilt der Entwicklung moderner webbasierter Anwendungen. Mit Python und Django entwickle ich leistungsfähige Webanwendungen, arbeite mit PostgreSQL-Datenbanken und setze auf Docker für eine reproduzierbare und zuverlässige Bereitstellung meiner Lösungen.': 'I am particularly passionate about developing modern web applications. Using Python and Django, I build powerful applications, work with PostgreSQL databases, and use Docker to deploy my solutions reliably and reproducibly.',
+      'Mein Anspruch ist es, komplexe technische und betriebliche Zusammenhänge verständlich, präzise und praxisnah aufzubereiten und effiziente, zuverlässige Lösungen zu schaffen.': 'My goal is to explain complex technical and operational topics clearly, precisely, and practically, and to create efficient, reliable solutions.',
       'Demo anfragen': 'Request a demo',
       'KI für Büroprozesse im Handwerk': 'AI for administrative work in the trades',
       'Weniger Büro.': 'Less paperwork.',
@@ -676,12 +708,42 @@
         'aria-label',
         language === 'en' ? 'Main navigation' : 'Hauptnavigation'
       );
+      document.querySelectorAll('.about-trigger').forEach(button => {
+        button.setAttribute('aria-label', language === 'en' ? 'About Johann Kern' : 'Über Johann Kern');
+      });
+      aboutPanel.setAttribute('aria-label', language === 'en' ? 'About me' : 'Über mich');
+      document.querySelector('.about-portrait').alt =
+        language === 'en' ? 'Portrait of Johann Kern' : 'Porträt von Johann Kern';
       languageSelect.setAttribute(
         'aria-label',
         language === 'en' ? 'Choose language' : 'Sprache wählen'
       );
       updateDemoEmailValidation();
     };
+
+    const aboutPanel = document.querySelector('#about-panel');
+    const aboutTriggers = document.querySelectorAll('.about-trigger');
+    const setAboutPanelOpen = open => {
+      aboutPanel.hidden = !open;
+      aboutTriggers.forEach(button => button.setAttribute('aria-expanded', String(open)));
+    };
+
+    aboutTriggers.forEach(button => {
+      button.addEventListener('click', () => setAboutPanelOpen(aboutPanel.hidden));
+    });
+    document.addEventListener('click', event => {
+      if (!aboutPanel.hidden && !aboutPanel.contains(event.target) &&
+          !Array.from(aboutTriggers).some(button => button.contains(event.target))) {
+        setAboutPanelOpen(false);
+      }
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !aboutPanel.hidden) {
+        setAboutPanelOpen(false);
+        const visibleTrigger = Array.from(aboutTriggers).find(button => button.getClientRects().length > 0);
+        if (visibleTrigger) visibleTrigger.focus();
+      }
+    });
 
     languageSelect.addEventListener('change', () => {
       const nextLanguage = languageSelect.value;
