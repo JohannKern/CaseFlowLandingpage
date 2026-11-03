@@ -1,6 +1,6 @@
-# CaseFlow AI – Landingpage für Handwerksbetriebe
+# CaseFlow AI – Landingpage für Dokumentenprozesse
 
-Eine responsive, deutschsprachige Landingpage für CaseFlow AI. Sie zeigt, wie die Plattform Büroprozesse im Handwerk unterstützt – von der Erfassung eingehender E-Mails und PDFs bis zur Prüfung von Abweichungen und Verteilung von Aufgaben.
+Eine responsive, deutsch- und englischsprachige Landingpage für CaseFlow AI. Sie zeigt, wie die Plattform dokumentenintensive Büroprozesse unterstützt – von der Erfassung eingehender E-Mails, PDFs, Scans und Uploads bis zur Prüfung, Ablage und Nachverfolgung. Die Anwendungsfälle richten sich an Handwerk, Verwaltung und Immobilien.
 
 ## Live ansehen
 
@@ -22,7 +22,8 @@ GitHub Actions veröffentlicht die Seite bei jedem Push auf den Branch `main`. D
 ## Inhalte der Landingpage
 
 - Produktvorstellung und interaktive Produktansicht
-- Typische Büroaufgaben im Handwerk und der CaseFlow-Ablauf
-- Anwendungsfälle für Auftragsbestätigungen, Rechnungen, Lieferantennachweise sowie Mängel und Reklamationen
+- Typische Büroaufgaben und der CaseFlow-Ablauf
+- Anwendungsfälle für Auftragsbestätigungen, Rechnungen, Lieferantennachweise, Mängel und Reklamationen
+- DSGVO-konforme Dokumentenablage, Dokumentenautomatisierung sowie Immobilien- und Objektverwaltung
 - Überblick zu Integrationen mit bestehender Unternehmenssoftware
 - Demo-Anfrage per E-Mail an `johann.kern1161@gmail.com`
