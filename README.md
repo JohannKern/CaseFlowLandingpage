@@ -1,6 +1,6 @@
 # CaseFlow AI – Landingpage für Dokumentenprozesse
 
-Eine responsive, deutsch- und englischsprachige Landingpage für CaseFlow AI. Sie zeigt, wie die Plattform dokumentenintensive Büroprozesse unterstützt – von der Erfassung eingehender E-Mails, PDFs, Scans und Uploads bis zur Prüfung, Ablage und Nachverfolgung. Die Anwendungsfälle richten sich an Handwerk, Verwaltung und Immobilien.
+Eine responsive, deutsch- und englischsprachige Landingpage für CaseFlow AI mit Fokus auf Procurement V1 im Handwerk: Auftragsbestätigungen, Rechnungen und Belege sowie Lieferanten und Nachweise.
 
 ## Live ansehen
 
@@ -9,6 +9,7 @@ Eine responsive, deutsch- und englischsprachige Landingpage für CaseFlow AI. Si
 ## Projektdateien
 
 - [`index.html`](./index.html) – vollständige Landingpage mit eingebettetem CSS und JavaScript; externe Build-Tools oder Laufzeitabhängigkeiten sind nicht erforderlich.
+- [`impressum.html`](./impressum.html) und [`datenschutz.html`](./datenschutz.html) – zweisprachige Rechtstexte.
 - [`.github/workflows/pages.yml`](./.github/workflows/pages.yml) – veröffentlicht die Website über GitHub Pages.
 
 ## Lokal ansehen
@@ -23,7 +24,8 @@ GitHub Actions veröffentlicht die Seite bei jedem Push auf den Branch `main`. D
 
 - Produktvorstellung und interaktive Produktansicht
 - Typische Büroaufgaben und der CaseFlow-Ablauf
-- Anwendungsfälle für Auftragsbestätigungen, Rechnungen, Lieferantennachweise, Mängel und Reklamationen
-- DSGVO-konforme Dokumentenablage, Dokumentenautomatisierung sowie Immobilien- und Objektverwaltung
+- Aktive Anwendungsfälle für Auftragsbestätigungen, Rechnungen und Belege sowie Lieferantennachweise
+- Zurückgestellte Anwendungsfälle im Abschnitt „In Planung“
 - Überblick zu Integrationen mit bestehender Unternehmenssoftware
-- Demo-Anfrage per E-Mail an `johann.kern1161@gmail.com`
+- Demo-Formular, das eine vorbereitete E-Mail im E-Mail-Programm der anfragenden Person öffnet; die Nachricht muss dort manuell abgeschickt werden
+- Impressum und Datenschutzhinweise

@@ -156,6 +156,10 @@
     .usecase ul { padding:0; margin:0; list-style:none; display:grid; gap:9px; }
     .usecase li { color:#aebdca; font-size:.9rem; padding-left:20px; position:relative; }
     .usecase li:before { content:"✓"; position:absolute; left:0; color:var(--brand); font-weight:900; }
+    .planned-usecases { margin-top:42px; padding:24px; border:1px solid rgba(255,255,255,.055); border-radius:22px; background:rgba(255,255,255,.012); }
+    .planned-usecases h3 { margin:0 0 16px; color:#8796a8; font-size:1rem; }
+    .planned-usecase-list { display:flex; flex-wrap:wrap; gap:10px; }
+    .planned-usecase { padding:9px 12px; border:1px solid rgba(255,255,255,.055); border-radius:999px; color:#8492a3; background:rgba(255,255,255,.012); font-size:.84rem; }
 
     .integration { display:grid; grid-template-columns:.85fr 1.15fr; gap:40px; align-items:center; }
     .system-map { position:relative; min-height:420px; }
@@ -291,9 +295,9 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow"><span class="dot"></span> KI für Büroprozesse im Handwerk</div>
+          <div class="eyebrow"><span class="dot"></span> KI für Beschaffungsprozesse im Handwerk</div>
           <h1>Weniger Büro.<br><span>Mehr Zeit fürs Handwerk.</span></h1>
-          <p class="hero-copy">CaseFlow liest E-Mails und PDFs, erkennt wichtige Daten, findet Abweichungen und startet automatisch den passenden Vorgang. Ihr Team prüft nur noch, was wirklich Aufmerksamkeit braucht.</p>
+          <p class="hero-copy">CaseFlow unterstützt Sie dabei, Auftragsbestätigungen zu prüfen, Rechnungen und Belege zu bearbeiten sowie Lieferanten und Nachweise im Blick zu behalten.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#demo">15-Minuten-Demo anfragen →</a>
             <a class="btn btn-ghost" href="#ablauf">So funktioniert CaseFlow</a>
@@ -311,7 +315,7 @@
           <div class="app">
             <div class="app-top">
               <div class="traffic"><i></i><i></i><i></i></div>
-              <div class="app-title">CaseFlow · Vorgang AB-2026-10482</div>
+              <div class="app-title">Beispielansicht · Vorgang AB-2026-10482</div>
               <div style="width:35px"></div>
             </div>
             <div class="app-body">
@@ -362,11 +366,11 @@
       <div class="wrap">
         <div class="section-kicker">Der Büroalltag</div>
         <h2 class="section-title">Ihr Betrieb läuft.<br>Das Büro läuft hinterher.</h2>
-        <p class="section-lead">Rechnungen, Verträge, Auftragsbestätigungen, Objektunterlagen, Zertifikate und Rückfragen kommen per E-Mail, PDF, Scan oder Upload. Danach beginnt oft die eigentliche Handarbeit – mit Ablage, Prüfung, Zuordnung und Nachverfolgung.</p>
+        <p class="section-lead">Auftragsbestätigungen, Rechnungen, Belege und Lieferantennachweise kommen per E-Mail, PDF, Scan oder Upload. Danach beginnt oft die eigentliche Handarbeit – mit Prüfung, Zuordnung und Nachverfolgung.</p>
         <div class="problem-grid">
           <article class="card reveal"><div class="icon">01</div><h3>Dokumente lesen & Daten abtippen</h3><p>Bestellnummern, Beträge, Termine oder Lieferanteninformationen werden manuell aus PDFs übernommen.</p></article>
           <article class="card reveal"><div class="icon">02</div><h3>Abweichungen selbst suchen</h3><p>Preise, Mengen und Liefertermine müssen mit Bestellungen oder vorhandenen Daten verglichen werden.</p></article>
-          <article class="card reveal"><div class="icon">03</div><h3>Dokumente sicher ablegen & wiederfinden</h3><p>Unterlagen landen in Postfächern, Ordnern und Netzlaufwerken. CaseFlow unterstützt eine strukturierte, nachvollziehbare und DSGVO-konforme Dokumentenablage mit klaren Zugriffs- und Löschkonzepten.</p></article>
+          <article class="card reveal"><div class="icon">03</div><h3>Nachweise strukturiert im Blick behalten</h3><p>Lieferantennachweise und Belege lassen sich strukturiert und nachvollziehbar den passenden Vorgängen zuordnen.</p></article>
         </div>
 
         <div class="compare reveal">
@@ -414,15 +418,20 @@
       <div class="wrap">
         <div class="section-kicker">Konkreter Nutzen</div>
         <h2 class="section-title">Keine KI-Spielerei.<br>Arbeit, die heute wirklich anfällt.</h2>
-        <p class="section-lead">CaseFlow setzt dort an, wo im Büroalltag täglich Zeit verloren geht: zwischen Posteingang, Dokument, Ablage, Freigabe und erledigtem Vorgang – im Handwerk ebenso wie in Verwaltung und Immobilien.</p>
+        <p class="section-lead">CaseFlow setzt dort an, wo im Beschaffungsalltag Zeit verloren geht: bei Auftragsbestätigungen, Rechnungen, Belegen und Lieferantennachweisen.</p>
         <div class="usecases">
           <article class="usecase reveal"><div class="usecase-head"><h3>Auftragsbestätigungen</h3><span class="tag">Einkauf</span></div><ul><li>Bestellnummer und Lieferant automatisch erkennen</li><li>Preise, Mengen und Liefertermine vergleichen</li><li>Abweichungen hervorheben</li><li>Nur relevante Fälle zur Prüfung geben</li></ul></article>
           <article class="usecase reveal"><div class="usecase-head"><h3>Rechnungen & Belege</h3><span class="tag">Büro</span></div><ul><li>Rechnungsdaten automatisch auslesen</li><li>Bestellnummer und Beträge zuordnen</li><li>Freigaben strukturiert einholen</li><li>Offene oder überfällige Fälle anzeigen</li></ul></article>
           <article class="usecase reveal"><div class="usecase-head"><h3>Lieferanten & Nachweise</h3><span class="tag">Beschaffung</span></div><ul><li>Fehlende Unterlagen erkennen</li><li>Zertifikate und Nachweise zentral zuordnen</li><li>Ablaufdaten überwachen</li><li>Wiedervorlagen automatisch erzeugen</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Mängel & Reklamationen</h3><span class="tag">Service</span></div><ul><li>E-Mails, Fotos und Dokumente einem Vorgang zuordnen</li><li>Verantwortliche und Fristen festlegen</li><li>Status jederzeit sichtbar machen</li><li>Bearbeitung nachvollziehbar dokumentieren</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>DSGVO-konforme Dokumentenablage</h3><span class="tag">Büroalltag</span></div><ul><li>Dokumente automatisch klassifizieren und strukturiert ablegen</li><li>Zugriffsrechte und Verantwortlichkeiten nachvollziehbar steuern</li><li>Aufbewahrungs- und Löschfristen abbilden</li><li>Dokumente schnell finden, statt in Postfächern und Ordnern zu suchen</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Dokumentenautomatisierung</h3><span class="tag">Automation</span></div><ul><li>Dokumente aus Vorlagen und vorhandenen Daten erzeugen</li><li>Standardtexte, Anschreiben und Formulare automatisch vorbereiten</li><li>Freigaben und Versand in definierte Workflows einbinden</li><li>Wiederkehrende Dokumentationsarbeit deutlich reduzieren</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Immobilien & Objektverwaltung</h3><span class="tag">Immobilien</span></div><ul><li>Mietverträge, Übergabeprotokolle und Objektunterlagen zuordnen</li><li>Fristen, Wartungen und fehlende Nachweise überwachen</li><li>Anfragen, Schäden und Dienstleisterkommunikation bündeln</li><li>Dokumenten- und Vorgangshistorie je Objekt nachvollziehbar halten</li></ul></article>
+        </div>
+        <div class="planned-usecases">
+          <h3>In Planung</h3>
+          <div class="planned-usecase-list">
+            <span class="planned-usecase">Mängel & Reklamationen</span>
+            <span class="planned-usecase">Dokumentenablage</span>
+            <span class="planned-usecase">Dokumentenautomatisierung</span>
+            <span class="planned-usecase">Immobilien & Objektverwaltung</span>
+          </div>
         </div>
       </div>
     </section>
@@ -432,18 +441,18 @@
         <div>
           <div class="section-kicker">Passt in Ihre bestehende IT</div>
           <h2 class="section-title">Ihre Software bleibt.<br>CaseFlow übernimmt die Arbeit dazwischen.</h2>
-          <p class="section-lead">CaseFlow ist nicht als Ersatz für ERP, Buchhaltung, DMS, Immobilien- oder Handwerkersoftware gedacht. Die Plattform verbindet eingehende Dokumente, Mitarbeiter und vorhandene Systeme und kann dabei bestehende Ablage- und Berechtigungskonzepte ergänzen.</p>
+          <p class="section-lead">CaseFlow ist nicht als Ersatz für ERP, Buchhaltung oder Handwerkersoftware gedacht. Die Plattform soll Beschaffungsdokumente, Mitarbeiter und vorhandene Systeme verbinden.</p>
           <div class="trust-row" style="margin-top:28px">
-            <span><i class="check">✓</i> REST API & Webhooks</span>
-            <span><i class="check">✓</i> CSV-/Excel-Export</span>
-            <span><i class="check">✓</i> Bestehende Systeme ergänzen</span>
+            <span>REST API & Webhooks (geplant)</span>
+            <span>CSV-/Excel-Export (geplant)</span>
+            <span>Bestehende Systeme ergänzen</span>
           </div>
         </div>
         <div class="system-map reveal" aria-hidden="true">
           <div class="line l1"></div><div class="line l2"></div><div class="line l3"></div><div class="line l4"></div>
           <div class="core">CASEFLOW<br><span style="font-size:.72rem;color:#8fa4b8;font-weight:700">intelligente Prozessschicht</span></div>
           <div class="system s1">E-Mail & PDFs</div>
-          <div class="system s2">ERP / Handwerks- / Immobiliensoftware</div>
+          <div class="system s2">ERP / Handwerkssoftware</div>
           <div class="system s3">Buchhaltung</div>
           <div class="system s4">DMS / Ablage</div>
           <div class="system s5">Mitarbeiter & Freigaben</div>
@@ -457,10 +466,10 @@
           <div class="cta-intro">
             <div class="cta-kicker">Unverbindlich & kostenlos</div>
             <h2>Demo anfordern</h2>
-            <p>Sehen Sie in einer persönlichen Vorführung, wie CaseFlow Büroabläufe rund um E-Mails, Dokumente, Ablage, Freigaben und wiederkehrende Verwaltungsprozesse vereinfacht.</p>
+            <p>Sehen Sie in einer persönlichen Vorführung, wie CaseFlow die Prüfung von Auftragsbestätigungen, Rechnungen und Lieferantennachweisen unterstützen soll.</p>
             <ul class="cta-benefits">
-              <li>Live-Durchlauf vom Dokumenteneingang bis zur passenden Aufgabe</li>
-              <li>Beispiele zu Rechnungen, Dokumentenablage, Dokumentenautomatisierung und Immobilienprozessen</li>
+              <li>Beispielablauf von der Auftragsbestätigung bis zur Prüfung</li>
+              <li>Beispiele zu Rechnungen, Belegen und Lieferantennachweisen</li>
               <li>Rückmeldung in der Regel innerhalb von zwei Werktagen</li>
             </ul>
           </div>
@@ -489,11 +498,6 @@
                 <option>Auftragsbestätigungen prüfen</option>
                 <option>Rechnungen und Belege bearbeiten</option>
                 <option>Lieferantenunterlagen verwalten</option>
-                <option>Mängel und Reklamationen bearbeiten</option>
-                <option>E-Mails und Dokumente zu Vorgängen zuordnen</option>
-                <option>DSGVO-konforme Dokumentenablage</option>
-                <option>Dokumente automatisch erstellen / verarbeiten</option>
-                <option>Immobilien- und Objektverwaltung</option>
                 <option>Mehrere dieser Prozesse</option>
                 <option>Noch offen</option>
               </select>
@@ -523,7 +527,7 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner"><div>© 2026 CaseFlow AI</div><div>Intelligente Prozessautomatisierung für dokumentengetriebene Arbeit</div><nav class="footer-links" aria-label="Rechtliche Informationen"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div>
+    <div class="wrap footer-inner"><div>© 2026 CaseFlow AI</div><div>Prozessunterstützung für Beschaffungsdokumente</div><nav class="footer-links" aria-label="Rechtliche Informationen"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div>
   </footer>
 
   <script>
@@ -539,6 +543,23 @@
       'Eine besondere Leidenschaft gilt der Entwicklung moderner webbasierter Anwendungen. Mit Python und Django entwickle ich leistungsfähige Webanwendungen, arbeite mit PostgreSQL-Datenbanken und setze auf Docker für eine reproduzierbare und zuverlässige Bereitstellung meiner Lösungen.': 'I am particularly passionate about developing modern web applications. Using Python and Django, I build powerful applications, work with PostgreSQL databases, and use Docker to deploy my solutions reliably and reproducibly.',
       'Mein Anspruch ist es, komplexe technische und betriebliche Zusammenhänge verständlich, präzise und praxisnah aufzubereiten und effiziente, zuverlässige Lösungen zu schaffen.': 'My goal is to explain complex technical and operational topics clearly, precisely, and practically, and to create efficient, reliable solutions.',
       'Demo anfragen': 'Request a demo',
+      'KI für Beschaffungsprozesse im Handwerk': 'AI for procurement workflows in the trades',
+      'CaseFlow unterstützt Sie dabei, Auftragsbestätigungen zu prüfen, Rechnungen und Belege zu bearbeiten sowie Lieferanten und Nachweise im Blick zu behalten.': 'CaseFlow helps you review order confirmations, process invoices and receipts, and keep track of suppliers and supporting documents.',
+      'Beispielansicht · Vorgang AB-2026-10482': 'Example view · Case AB-2026-10482',
+      'Auftragsbestätigungen, Rechnungen, Belege und Lieferantennachweise kommen per E-Mail, PDF, Scan oder Upload. Danach beginnt oft die eigentliche Handarbeit – mit Prüfung, Zuordnung und Nachverfolgung.': 'Order confirmations, invoices, receipts, and supplier documents arrive by email, PDF, scan, or upload. Then the manual work begins: reviewing, matching, and tracking them.',
+      'Nachweise strukturiert im Blick behalten': 'Keep supporting documents organized',
+      'Lieferantennachweise und Belege lassen sich strukturiert und nachvollziehbar den passenden Vorgängen zuordnen.': 'Supplier documents and receipts can be organized and linked to the relevant cases in a traceable way.',
+      'CaseFlow setzt dort an, wo im Beschaffungsalltag Zeit verloren geht: bei Auftragsbestätigungen, Rechnungen, Belegen und Lieferantennachweisen.': 'CaseFlow focuses on procurement tasks that take time: order confirmations, invoices, receipts, and supplier documents.',
+      'In Planung': 'Planned',
+      'Dokumentenablage': 'Document storage',
+      'CaseFlow ist nicht als Ersatz für ERP, Buchhaltung oder Handwerkersoftware gedacht. Die Plattform soll Beschaffungsdokumente, Mitarbeiter und vorhandene Systeme verbinden.': 'CaseFlow is not intended to replace ERP, accounting, or trade software. The platform is designed to connect procurement documents, your team, and existing systems.',
+      'REST API & Webhooks (geplant)': 'REST API & webhooks (planned)',
+      'CSV-/Excel-Export (geplant)': 'CSV/Excel export (planned)',
+      'ERP / Handwerkssoftware': 'ERP / trade software',
+      'Sehen Sie in einer persönlichen Vorführung, wie CaseFlow die Prüfung von Auftragsbestätigungen, Rechnungen und Lieferantennachweisen unterstützen soll.': 'See in a personal walkthrough how CaseFlow is designed to support the review of order confirmations, invoices, and supplier documents.',
+      'Beispielablauf von der Auftragsbestätigung bis zur Prüfung': 'Example workflow from order confirmation to review',
+      'Beispiele zu Rechnungen, Belegen und Lieferantennachweisen': 'Examples of invoices, receipts, and supplier documents',
+      'Prozessunterstützung für Beschaffungsdokumente': 'Workflow support for procurement documents',
       'Impressum': 'Legal notice',
       'Datenschutz': 'Privacy policy',
       'Rechtliche Informationen': 'Legal information',
@@ -548,10 +569,8 @@
       'Bitte füllen Sie alle Pflichtfelder korrekt aus.': 'Please complete all required fields correctly.',
       'Das Formular konnte nicht verarbeitet werden.': 'The form could not be processed.',
       'Bitte nicht ausfüllen': 'Please leave this field empty',
-      'KI für Büroprozesse im Handwerk': 'AI for administrative work in the trades',
       'Weniger Büro.': 'Less paperwork.',
       'Mehr Zeit fürs Handwerk.': 'More time for your craft.',
-      'CaseFlow liest E-Mails und PDFs, erkennt wichtige Daten, findet Abweichungen und startet automatisch den passenden Vorgang. Ihr Team prüft nur noch, was wirklich Aufmerksamkeit braucht.': 'CaseFlow reads emails and PDFs, identifies key information, spots discrepancies, and automatically starts the right workflow. Your team only reviews what truly needs attention.',
       '15-Minuten-Demo anfragen →': 'Request a 15-minute demo →',
       'So funktioniert CaseFlow': 'How CaseFlow works',
       'Keine neue Komplettsoftware. CaseFlow ergänzt Ihre bestehende Büro- und Unternehmenssoftware.': 'No need for an entirely new software suite. CaseFlow complements your existing office and business software.',
@@ -622,7 +641,6 @@
       'Konkreter Nutzen': 'Practical benefits',
       'Keine KI-Spielerei.': 'No AI gimmicks.',
       'Arbeit, die heute wirklich anfällt.': 'Real work that needs doing today.',
-      'CaseFlow setzt dort an, wo im Büroalltag täglich Zeit verloren geht: zwischen Posteingang, Dokument, Ablage, Freigabe und erledigtem Vorgang – im Handwerk ebenso wie in Verwaltung und Immobilien.': 'CaseFlow tackles where trade businesses lose time every day: between the inbox, the document, and the completed case.',
       'Auftragsbestätigungen': 'Order confirmations',
       'Einkauf': 'Purchasing',
       'Bestellnummer und Lieferant automatisch erkennen': 'Automatically identify order number and supplier',
@@ -655,7 +673,6 @@
       'Bestehende Systeme ergänzen': 'Works with existing systems',
       'intelligente Prozessschicht': 'intelligent workflow layer',
       'E-Mail & PDFs': 'Email and PDFs',
-      'ERP / Handwerks- / Immobiliensoftware': 'ERP / trade / real-estate software',
       'Buchhaltung': 'Accounting',
       'DMS / Ablage': 'DMS / file storage',
       'Mitarbeiter & Freigaben': 'Team and approvals',
@@ -675,37 +692,15 @@
       'Auftragsbestätigungen prüfen': 'Review order confirmations',
       'Rechnungen und Belege bearbeiten': 'Process invoices and receipts',
       'Lieferantenunterlagen verwalten': 'Manage supplier documents',
-      'Mängel und Reklamationen bearbeiten': 'Handle defects and complaints',
-      'E-Mails und Dokumente zu Vorgängen zuordnen': 'Link emails and documents to cases',
       'Mehrere dieser Prozesse': 'Several of these processes',
       'Noch offen': 'Not sure yet',
       'Wunschzeitraum': 'Preferred timeframe',
       'Nachricht': 'Message',
       'Ich bin damit einverstanden, dass Sie mich zur Demo-Anfrage kontaktieren. *': 'I agree to be contacted about my demo request. *',
-      'DSGVO-konforme Dokumentenablage': 'GDPR-compliant document storage',
-      'Büroalltag': 'Office work',
-      'Dokumente automatisch klassifizieren und strukturiert ablegen': 'Automatically classify and store documents in a structured way',
-      'Zugriffsrechte und Verantwortlichkeiten nachvollziehbar steuern': 'Manage access rights and responsibilities transparently',
-      'Aufbewahrungs- und Löschfristen abbilden': 'Map retention and deletion periods',
-      'Dokumente schnell finden, statt in Postfächern und Ordnern zu suchen': 'Find documents quickly instead of searching inboxes and folders',
       'Dokumentenautomatisierung': 'Document automation',
       'Automation': 'Automation',
-      'Dokumente aus Vorlagen und vorhandenen Daten erzeugen': 'Generate documents from templates and existing data',
-      'Standardtexte, Anschreiben und Formulare automatisch vorbereiten': 'Automatically prepare standard texts, letters, and forms',
-      'Freigaben und Versand in definierte Workflows einbinden': 'Integrate approvals and sending into defined workflows',
-      'Wiederkehrende Dokumentationsarbeit deutlich reduzieren': 'Significantly reduce recurring documentation work',
       'Immobilien & Objektverwaltung': 'Real estate and property management',
-      'Immobilien': 'Real estate',
-      'Mietverträge, Übergabeprotokolle und Objektunterlagen zuordnen': 'Assign leases, handover reports, and property documents',
-      'Fristen, Wartungen und fehlende Nachweise überwachen': 'Monitor deadlines, maintenance, and missing documentation',
-      'Anfragen, Schäden und Dienstleisterkommunikation bündeln': 'Bundle requests, damage reports, and service-provider communication',
-      'Dokumenten- und Vorgangshistorie je Objekt nachvollziehbar halten': 'Maintain a transparent document and case history for each property',
-      'Dokumente sicher ablegen & wiederfinden': 'Store and retrieve documents securely',
-      'Unterlagen landen in Postfächern, Ordnern und Netzlaufwerken. CaseFlow unterstützt eine strukturierte, nachvollziehbare und DSGVO-konforme Dokumentenablage mit klaren Zugriffs- und Löschkonzepten.': 'Documents end up in inboxes, folders, and network drives. CaseFlow supports structured, traceable, GDPR-compliant document storage with clear access and deletion concepts.',
-      'DSGVO-konforme Dokumentenablage': 'GDPR-compliant document storage',
-      'Dokumente automatisch erstellen / verarbeiten': 'Automatically create / process documents',
-      'Immobilien- und Objektverwaltung': 'Real estate and property management',
-      'Intelligente Prozessautomatisierung für dokumentengetriebene Arbeit': 'Intelligent process automation for document-driven work'
+      'Immobilien': 'Real estate'
     };
 
     const originalTextNodes = new Map();
