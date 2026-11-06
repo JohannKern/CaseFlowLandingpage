@@ -192,6 +192,9 @@
     .demo-form .btn-primary:hover { background:#0b7068; }
     .form-note, .form-status { grid-column:1 / -1; margin:0; color:#647582; font-size:.82rem; }
     .form-status { color:#08746d; font-weight:700; }
+    .form-status.error { color:#b42318; }
+    .honeypot { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .demo-form .btn-primary:disabled { opacity:.65; cursor:wait; transform:none; }
     .footer { border-top:1px solid var(--line); padding:28px 0 38px; color:#73859a; font-size:.82rem; }
     .footer-inner { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
     .footer-links { display:flex; gap:16px; }
@@ -507,8 +510,11 @@
               <input type="checkbox" name="privacy" required />
               <span>Ich bin damit einverstanden, dass Sie mich zur Demo-Anfrage kontaktieren. *</span>
             </label>
+            <label class="honeypot" aria-hidden="true">Bitte nicht ausfüllen
+              <input name="_honeypot" tabindex="-1" autocomplete="off" />
+            </label>
             <button class="btn btn-primary" type="submit">Demo anfordern</button>
-            <p class="form-note">* Pflichtfelder. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie nur noch abschicken müssen.</p>
+            <p class="form-note">* Pflichtfelder. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie dort noch senden müssen. Hinweise zur Datenverarbeitung stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
             <p class="form-status" id="demo-form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -536,6 +542,12 @@
       'Impressum': 'Legal notice',
       'Datenschutz': 'Privacy policy',
       'Rechtliche Informationen': 'Legal information',
+      '* Pflichtfelder. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie dort noch senden müssen. Hinweise zur Datenverarbeitung stehen in der': '* Required fields. Submitting opens your email app with a prepared message for you to send. Information about data processing is available in the',
+      'Ihr E-Mail-Programm wird geöffnet. Bitte senden Sie die vorbereitete Nachricht dort ab. Falls es sich nicht öffnet, schreiben Sie an johann.kern1161@gmail.com.': 'Your email app will open. Please send the prepared message from there. If it does not open, email johann.kern1161@gmail.com.',
+      'Bitte prüfen Sie Ihre Angaben und versuchen Sie es erneut. Sie können auch direkt an johann.kern1161@gmail.com schreiben.': 'Please check your details and try again. You can also email johann.kern1161@gmail.com directly.',
+      'Bitte füllen Sie alle Pflichtfelder korrekt aus.': 'Please complete all required fields correctly.',
+      'Das Formular konnte nicht verarbeitet werden.': 'The form could not be processed.',
+      'Bitte nicht ausfüllen': 'Please leave this field empty',
       'KI für Büroprozesse im Handwerk': 'AI for administrative work in the trades',
       'Weniger Büro.': 'Less paperwork.',
       'Mehr Zeit fürs Handwerk.': 'More time for your craft.',
@@ -670,7 +682,6 @@
       'Wunschzeitraum': 'Preferred timeframe',
       'Nachricht': 'Message',
       'Ich bin damit einverstanden, dass Sie mich zur Demo-Anfrage kontaktieren. *': 'I agree to be contacted about my demo request. *',
-      '* Pflichtfelder. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie nur noch abschicken müssen.': '* Required fields. Submitting opens your email app with a prepared message for you to send.',
       'DSGVO-konforme Dokumentenablage': 'GDPR-compliant document storage',
       'Büroalltag': 'Office work',
       'Dokumente automatisch klassifizieren und strukturiert ablegen': 'Automatically classify and store documents in a structured way',
@@ -833,16 +844,48 @@
       updateDemoEmailValidation();
     });
 
+    const demoFormStatus = document.querySelector('#demo-form-status');
+    const demoSubmitButton = demoForm.querySelector('button[type="submit"]');
+    const honeypot = demoForm.querySelector('input[name="_honeypot"]');
+    const setFormStatus = (message, isError = false) => {
+      demoFormStatus.textContent = message;
+      demoFormStatus.classList.toggle('error', isError);
+    };
+
+    demoForm.addEventListener('invalid', () => {
+      const english = document.documentElement.lang === 'en';
+      setFormStatus(
+        english
+          ? 'Please complete all required fields correctly.'
+          : 'Bitte füllen Sie alle Pflichtfelder korrekt aus.',
+        true
+      );
+    }, true);
+
     demoForm.addEventListener('submit', event => {
       event.preventDefault();
-      const formData = new FormData(demoForm);
       const english = document.documentElement.lang === 'en';
+      if (!demoForm.reportValidity()) {
+        setFormStatus(
+          english ? 'Please complete all required fields correctly.' : 'Bitte füllen Sie alle Pflichtfelder korrekt aus.',
+          true
+        );
+        return;
+      }
+      if (honeypot.value) {
+        setFormStatus(
+          english ? 'The form could not be processed.' : 'Das Formular konnte nicht verarbeitet werden.',
+          true
+        );
+        return;
+      }
+      const formData = new FormData(demoForm);
       const fields = [
         [english ? 'Name' : 'Name', formData.get('name')],
         [english ? 'Business / company' : 'Betrieb / Unternehmen', formData.get('company')],
         [english ? 'Email' : 'E-Mail', formData.get('email')],
         [english ? 'Phone' : 'Telefon', formData.get('phone')],
-        [english ? 'Processes of interest' : 'Interessante Prozesse', formData.get('process')],
+        [english ? 'Process of interest' : 'Interessanter Prozess', formData.get('process')],
         [english ? 'Preferred timeframe' : 'Wunschzeitraum', formData.get('timeframe')],
         [english ? 'Message' : 'Nachricht', formData.get('message')]
       ];
@@ -852,11 +895,18 @@
         .join('\n');
       const subject = encodeURIComponent(english ? 'CaseFlow AI demo request' : 'Demo-Anfrage CaseFlow AI');
       const encodedBody = encodeURIComponent(body);
-      document.querySelector('#demo-form-status').textContent =
+      demoSubmitButton.disabled = true;
+      demoSubmitButton.textContent = english ? 'Preparing email ...' : 'E-Mail wird vorbereitet ...';
+      setFormStatus(
         english
-          ? 'Your email app will open. Please send the prepared message from there.'
-          : 'Ihr E-Mail-Programm wird geöffnet. Bitte senden Sie die vorbereitete Nachricht dort ab.';
+          ? 'Your email app will open. Please send the prepared message from there. If it does not open, email johann.kern1161@gmail.com.'
+          : 'Ihr E-Mail-Programm wird geöffnet. Bitte senden Sie die vorbereitete Nachricht dort ab. Falls es sich nicht öffnet, schreiben Sie an johann.kern1161@gmail.com.'
+      );
       window.location.href = `mailto:johann.kern1161@gmail.com?subject=${subject}&body=${encodedBody}`;
+      window.setTimeout(() => {
+        demoSubmitButton.disabled = false;
+        demoSubmitButton.textContent = english ? 'Request a demo' : 'Demo anfordern';
+      }, 1500);
     });
 
     const observer = new IntersectionObserver((entries) => {
