@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CaseFlow AI reduces office workload for trade businesses: automatically capture, check, and process emails, PDFs, order confirmations, invoices, and supplier documents." />
-  <title>CaseFlow AI – Less paperwork. More time for your craft.</title>
+  <meta name="description" content="CaseFlow AI unterstützt Handwerksbetriebe bei der Prüfung von Auftragsbestätigungen, Rechnungen und Lieferantennachweisen." />
+  <meta property="og:title" content="CaseFlow AI – Weniger Büro. Mehr Zeit fürs Handwerk." />
+  <meta property="og:description" content="CaseFlow AI unterstützt Handwerksbetriebe bei der Prüfung von Auftragsbestätigungen, Rechnungen und Lieferantennachweisen." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://johannkern.github.io/CaseFlowLandingpage/" />
+  <title>CaseFlow AI – Weniger Büro. Mehr Zeit fürs Handwerk.</title>
   <style>
     :root {
       --bg: #07111f;
@@ -273,7 +277,7 @@
         <div class="language-switch">
           <select id="language-select" aria-label="Sprache wählen">
             <option value="de">Deutsch</option>
-            <option value="en" selected>English</option>
+            <option value="en">English</option>
           </select>
         </div>
         <a class="btn btn-primary" href="#demo">Demo anfragen</a>
@@ -713,8 +717,12 @@
     const demoTime = document.querySelector('#demo-time');
     const demoMessage = document.querySelector('#demo-message');
     const pageDescription = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
     const originalPageTitle = document.title;
     const originalPageDescription = pageDescription.content;
+    const originalOgTitle = ogTitle.content;
+    const originalOgDescription = ogDescription.content;
     const originalTimePlaceholder = demoTime.placeholder;
     const originalMessagePlaceholder = demoMessage.placeholder;
 
@@ -729,11 +737,17 @@
       }
 
       document.title = language === 'en'
-        ? 'CaseFlow AI – Less paperwork. More time for your craft.'
+        ? 'CaseFlow AI – Smarter procurement workflows for the trades.'
         : originalPageTitle;
       pageDescription.content = language === 'en'
-        ? 'CaseFlow AI reduces office workload for trade businesses: automatically capture, check, and process emails, PDFs, order confirmations, invoices, and supplier documents.'
+        ? 'CaseFlow AI helps trade businesses review order confirmations, process invoices and receipts, and keep track of supplier documents.'
         : originalPageDescription;
+      ogTitle.content = language === 'en'
+        ? 'CaseFlow AI – Smarter procurement workflows for the trades.'
+        : originalOgTitle;
+      ogDescription.content = language === 'en'
+        ? 'CaseFlow AI helps trade businesses review order confirmations, process invoices and receipts, and keep track of supplier documents.'
+        : originalOgDescription;
       demoTime.placeholder = language === 'en'
         ? 'e.g. next week, mornings'
         : originalTimePlaceholder;
@@ -826,7 +840,7 @@
 
     const resolveInitialLanguage = () => {
       const storedLanguage = getStoredLanguage();
-      return storedLanguage || 'en';
+      return storedLanguage || 'de';
     };
 
     const initialLanguage = resolveInitialLanguage();
