@@ -194,6 +194,8 @@
     .form-status { color:#08746d; font-weight:700; }
     .footer { border-top:1px solid var(--line); padding:28px 0 38px; color:#73859a; font-size:.82rem; }
     .footer-inner { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .footer-links { display:flex; gap:16px; }
+    .footer-links a:hover { color:var(--text); }
 
     .reveal { opacity:0; transform:translateY(20px); transition: .7s cubic-bezier(.2,.7,.2,1); }
     .reveal.visible { opacity:1; transform:none; }
@@ -515,7 +517,7 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner"><div>© 2026 CaseFlow AI</div><div>Intelligente Prozessautomatisierung für dokumentengetriebene Arbeit</div></div>
+    <div class="wrap footer-inner"><div>© 2026 CaseFlow AI</div><div>Intelligente Prozessautomatisierung für dokumentengetriebene Arbeit</div><nav class="footer-links" aria-label="Rechtliche Informationen"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div>
   </footer>
 
   <script>
@@ -531,6 +533,9 @@
       'Eine besondere Leidenschaft gilt der Entwicklung moderner webbasierter Anwendungen. Mit Python und Django entwickle ich leistungsfähige Webanwendungen, arbeite mit PostgreSQL-Datenbanken und setze auf Docker für eine reproduzierbare und zuverlässige Bereitstellung meiner Lösungen.': 'I am particularly passionate about developing modern web applications. Using Python and Django, I build powerful applications, work with PostgreSQL databases, and use Docker to deploy my solutions reliably and reproducibly.',
       'Mein Anspruch ist es, komplexe technische und betriebliche Zusammenhänge verständlich, präzise und praxisnah aufzubereiten und effiziente, zuverlässige Lösungen zu schaffen.': 'My goal is to explain complex technical and operational topics clearly, precisely, and practically, and to create efficient, reliable solutions.',
       'Demo anfragen': 'Request a demo',
+      'Impressum': 'Legal notice',
+      'Datenschutz': 'Privacy policy',
+      'Rechtliche Informationen': 'Legal information',
       'KI für Büroprozesse im Handwerk': 'AI for administrative work in the trades',
       'Weniger Büro.': 'Less paperwork.',
       'Mehr Zeit fürs Handwerk.': 'More time for your craft.',
@@ -736,6 +741,10 @@
       document.querySelector('.nav-links').setAttribute(
         'aria-label',
         language === 'en' ? 'Main navigation' : 'Hauptnavigation'
+      );
+      document.querySelector('.footer-links').setAttribute(
+        'aria-label',
+        language === 'en' ? 'Legal information' : 'Rechtliche Informationen'
       );
       document.querySelectorAll('.about-trigger').forEach(button => {
         button.setAttribute('aria-label', language === 'en' ? 'About Johann Kern' : 'Über Johann Kern');
