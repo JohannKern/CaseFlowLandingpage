@@ -160,11 +160,6 @@
     .usecase ul { padding:0; margin:0; list-style:none; display:grid; gap:9px; }
     .usecase li { color:#aebdca; font-size:.9rem; padding-left:20px; position:relative; }
     .usecase li:before { content:"✓"; position:absolute; left:0; color:var(--brand); font-weight:900; }
-    .planned-usecases { margin-top:42px; padding:24px; border:1px solid rgba(255,255,255,.055); border-radius:22px; background:rgba(255,255,255,.012); }
-    .planned-usecases h3 { margin:0 0 16px; color:#8796a8; font-size:1rem; }
-    .planned-usecase-list { display:flex; flex-wrap:wrap; gap:10px; }
-    .planned-usecase { padding:9px 12px; border:1px solid rgba(255,255,255,.055); border-radius:999px; color:#8492a3; background:rgba(255,255,255,.012); font-size:.84rem; }
-
     .integration { display:grid; grid-template-columns:.85fr 1.15fr; gap:40px; align-items:center; }
     .system-map { position:relative; min-height:420px; }
     .core { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:170px; height:170px; border-radius:38px; display:grid; place-items:center; text-align:center; background:linear-gradient(135deg,rgba(83,224,194,.16),rgba(105,167,255,.16)); border:1px solid rgba(255,255,255,.13); box-shadow:0 30px 70px rgba(0,0,0,.24); font-weight:900; }
@@ -427,15 +422,10 @@
           <article class="usecase reveal"><div class="usecase-head"><h3>Auftragsbestätigungen</h3><span class="tag">Einkauf</span></div><ul><li>Bestellnummer und Lieferant automatisch erkennen</li><li>Preise, Mengen und Liefertermine vergleichen</li><li>Abweichungen hervorheben</li><li>Nur relevante Fälle zur Prüfung geben</li></ul></article>
           <article class="usecase reveal"><div class="usecase-head"><h3>Rechnungen & Belege</h3><span class="tag">Büro</span></div><ul><li>Rechnungsdaten automatisch auslesen</li><li>Bestellnummer und Beträge zuordnen</li><li>Freigaben strukturiert einholen</li><li>Offene oder überfällige Fälle anzeigen</li></ul></article>
           <article class="usecase reveal"><div class="usecase-head"><h3>Lieferanten & Nachweise</h3><span class="tag">Beschaffung</span></div><ul><li>Fehlende Unterlagen erkennen</li><li>Zertifikate und Nachweise zentral zuordnen</li><li>Ablaufdaten überwachen</li><li>Wiedervorlagen automatisch erzeugen</li></ul></article>
-        </div>
-        <div class="planned-usecases">
-          <h3>In Planung</h3>
-          <div class="planned-usecase-list">
-            <span class="planned-usecase">Mängel & Reklamationen</span>
-            <span class="planned-usecase">Dokumentenablage</span>
-            <span class="planned-usecase">Dokumentenautomatisierung</span>
-            <span class="planned-usecase">Immobilien & Objektverwaltung</span>
-          </div>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Mängel & Reklamationen</h3><span class="tag">Service</span></div><ul><li>E-Mails, Fotos und Dokumente einem Vorgang zuordnen</li><li>Verantwortliche und Fristen festlegen</li><li>Status jederzeit sichtbar machen</li><li>Bearbeitung nachvollziehbar dokumentieren</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Strukturierte Dokumentenablage</h3><span class="tag">Büroalltag</span></div><ul><li>Dokumente automatisch klassifizieren und strukturiert ablegen</li><li>Zugriffsrechte und Verantwortlichkeiten nachvollziehbar steuern</li><li>Aufbewahrungs- und Löschfristen abbilden</li><li>Dokumente schnell finden, statt in Postfächern und Ordnern zu suchen</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Dokumentenautomatisierung</h3><span class="tag">Automation</span></div><ul><li>Dokumente aus Vorlagen und vorhandenen Daten erzeugen</li><li>Standardtexte, Anschreiben und Formulare automatisch vorbereiten</li><li>Freigaben und Versand in definierte Workflows einbinden</li><li>Wiederkehrende Dokumentationsarbeit deutlich reduzieren</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Immobilien & Objektverwaltung</h3><span class="tag">Immobilien</span></div><ul><li>Mietverträge, Übergabeprotokolle und Objektunterlagen zuordnen</li><li>Fristen, Wartungen und fehlende Nachweise überwachen</li><li>Anfragen, Schäden und Dienstleisterkommunikation bündeln</li><li>Dokumenten- und Vorgangshistorie je Objekt nachvollziehbar halten</li></ul></article>
         </div>
       </div>
     </section>
@@ -554,7 +544,6 @@
       'Nachweise strukturiert im Blick behalten': 'Keep supporting documents organized',
       'Lieferantennachweise und Belege lassen sich strukturiert und nachvollziehbar den passenden Vorgängen zuordnen.': 'Supplier documents and receipts can be organized and linked to the relevant cases in a traceable way.',
       'CaseFlow setzt dort an, wo im Beschaffungsalltag Zeit verloren geht: bei Auftragsbestätigungen, Rechnungen, Belegen und Lieferantennachweisen.': 'CaseFlow focuses on procurement tasks that take time: order confirmations, invoices, receipts, and supplier documents.',
-      'In Planung': 'Planned',
       'Dokumentenablage': 'Document storage',
       'CaseFlow ist nicht als Ersatz für ERP, Buchhaltung oder Handwerkersoftware gedacht. Die Plattform soll Beschaffungsdokumente, Mitarbeiter und vorhandene Systeme verbinden.': 'CaseFlow is not intended to replace ERP, accounting, or trade software. The platform is designed to connect procurement documents, your team, and existing systems.',
       'REST API & Webhooks (geplant)': 'REST API & webhooks (planned)',
@@ -669,6 +658,12 @@
       'Verantwortliche und Fristen festlegen': 'Assign owners and set deadlines',
       'Status jederzeit sichtbar machen': 'Keep status visible at all times',
       'Bearbeitung nachvollziehbar dokumentieren': 'Keep a clear record of all actions',
+      'Büroalltag': 'Office workflows',
+      'Strukturierte Dokumentenablage': 'Structured document storage',
+      'Dokumente automatisch klassifizieren und strukturiert ablegen': 'Automatically classify and organize documents',
+      'Zugriffsrechte und Verantwortlichkeiten nachvollziehbar steuern': 'Manage access rights and responsibilities transparently',
+      'Aufbewahrungs- und Löschfristen abbilden': 'Track retention and deletion periods',
+      'Dokumente schnell finden, statt in Postfächern und Ordnern zu suchen': 'Find documents quickly instead of searching through inboxes and folders',
       'Passt in Ihre bestehende IT': 'Fits your existing IT',
       'Ihre Software bleibt.': 'Keep your software.',
       'CaseFlow übernimmt die Arbeit dazwischen.': 'CaseFlow handles the work in between.',
