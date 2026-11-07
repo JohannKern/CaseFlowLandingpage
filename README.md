@@ -24,7 +24,7 @@ GitHub Actions veröffentlicht die Seite bei jedem Push auf den Branch `main`. D
 
 - Produktvorstellung und interaktive Produktansicht
 - Typische Büroaufgaben und der CaseFlow-Ablauf
-- Aktive Anwendungsfälle für Auftragsbestätigungen, Rechnungen und Belege sowie Lieferantennachweise
+- Anwendungsfälle für Beschaffungsdokumente, Lieferantennachweise und Datenschutzanfragen nach DSGVO
 - Zurückgestellte Anwendungsfälle im Abschnitt „In Planung“
 - Überblick zu Integrationen mit bestehender Unternehmenssoftware
 - Demo-Formular, das eine vorbereitete E-Mail im E-Mail-Programm der anfragenden Person öffnet; die Nachricht muss dort manuell abgeschickt werden
