@@ -1,0 +1,5 @@
+# On GitHub Pages project sites, crawlers use the host-level robots.txt.
+# This file is retained for compatibility; submit the sitemap in Search Console.
+User-agent: *
+Allow: /
+Sitemap: https://johannkern.github.io/CaseFlowLandingpage/sitemap.xml

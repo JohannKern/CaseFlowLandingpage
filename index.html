@@ -3,12 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CaseFlow AI unterstützt Handwerksbetriebe bei der Prüfung von Auftragsbestätigungen, Rechnungen und Lieferantennachweisen." />
-  <meta property="og:title" content="CaseFlow AI – Weniger Büro. Mehr Zeit fürs Handwerk." />
-  <meta property="og:description" content="CaseFlow AI unterstützt Handwerksbetriebe bei der Prüfung von Auftragsbestätigungen, Rechnungen und Lieferantennachweisen." />
+  <meta name="description" content="Geplante Beschaffungssoftware für Handwerk und KMU: Auftragsbestätigungen, Rechnungsprüfung und Lieferantennachweise. Demo anfragen." />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="canonical" href="https://johannkern.github.io/CaseFlowLandingpage/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Beschaffung im Handwerk mit KI | CaseFlow AI" />
+  <meta property="og:description" content="Geplante Beschaffungssoftware für Handwerk und KMU: Auftragsbestätigungen, Rechnungsprüfung und Lieferantennachweise. Demo anfragen." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://johannkern.github.io/CaseFlowLandingpage/" />
-  <title>CaseFlow AI – Weniger Büro. Mehr Zeit fürs Handwerk.</title>
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="CaseFlow AI" />
+  <meta property="og:image" content="https://johannkern.github.io/CaseFlowLandingpage/assets/og-caseflow.png" />
+  <meta property="og:image:alt" content="CaseFlow AI – Beschaffung im Handwerk, Procurement V1 in Entwicklung" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Beschaffung im Handwerk mit KI | CaseFlow AI" />
+  <meta name="twitter:description" content="Geplante Beschaffungssoftware für Handwerk und KMU: Auftragsbestätigungen, Rechnungsprüfung und Lieferantennachweise. Demo anfragen." />
+  <meta name="twitter:image" content="https://johannkern.github.io/CaseFlowLandingpage/assets/og-caseflow.png" />
+  <title>Beschaffung im Handwerk mit KI | CaseFlow AI</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://johannkern.github.io/CaseFlowLandingpage/#organization",
+          "name": "CaseFlow AI",
+          "url": "https://johannkern.github.io/CaseFlowLandingpage/",
+          "logo": "https://johannkern.github.io/CaseFlowLandingpage/producthunt/Logo.png"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://johannkern.github.io/CaseFlowLandingpage/#website",
+          "url": "https://johannkern.github.io/CaseFlowLandingpage/",
+          "name": "CaseFlow AI",
+          "inLanguage": "de-DE",
+          "publisher": {
+            "@id": "https://johannkern.github.io/CaseFlowLandingpage/#organization"
+          }
+        }
+      ]
+    }
+  </script>
   <style>
     :root {
       --bg: #07111f;
@@ -98,6 +136,7 @@
     .traffic { display:flex; gap:7px; }
     .traffic i { width:9px; height:9px; border-radius:50%; background:#31465f; display:block; }
     .app-title { font-size:.83rem; color:#b9c6d4; }
+    .mockup-heading { margin:2px 0 3px; color:var(--text); font-size:1.05rem; font-weight:700; }
     .app-body { display:grid; grid-template-columns: 160px 1fr; min-height:480px; }
     .sidebar { padding:18px 12px; border-right:1px solid var(--line); background:rgba(4,12,22,.28); }
     .side-label { color:#64758a; text-transform:uppercase; font-size:.65rem; letter-spacing:.12em; margin:10px 10px 8px; }
@@ -105,7 +144,6 @@
     .side-item.active { color:white; background:linear-gradient(90deg,rgba(83,224,194,.12),rgba(105,167,255,.08)); border:1px solid rgba(83,224,194,.1); }
     .main-panel { padding:20px; }
     .case-head { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px; }
-    .case-head h3 { margin:2px 0 3px; font-size:1.05rem; }
     .case-head p { margin:0; color:#7f90a6; font-size:.76rem; }
     .status { padding:7px 10px; border-radius:999px; background:rgba(255,202,106,.1); color:var(--warning); border:1px solid rgba(255,202,106,.18); font-size:.7rem; font-weight:800; white-space:nowrap; }
     .metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px; }
@@ -149,7 +187,7 @@
     .flow-step { position:relative; padding:22px 16px; min-height:160px; border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.025); }
     .flow-step:not(:last-child):after { content:"→"; position:absolute; right:-10px; top:50%; transform:translate(50%,-50%); color:#5f7187; z-index:2; }
     .flow-num { width:28px; height:28px; border-radius:9px; display:grid; place-items:center; background:rgba(105,167,255,.1); color:#91bcff; font-size:.72rem; font-weight:900; }
-    .flow-step h4 { margin:16px 0 7px; font-size:.92rem; }
+    .flow-step h3 { margin:16px 0 7px; font-size:.92rem; }
     .flow-step p { color:#8ea0b5; font-size:.78rem; margin:0; }
 
     .usecases { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:42px; }
@@ -160,8 +198,12 @@
     .usecase ul { padding:0; margin:0; list-style:none; display:grid; gap:9px; }
     .usecase li { color:#aebdca; font-size:.9rem; padding-left:20px; position:relative; }
     .usecase li:before { content:"✓"; position:absolute; left:0; color:var(--brand); font-weight:900; }
-    .integration { display:grid; grid-template-columns:.85fr 1.15fr; gap:40px; align-items:center; }
-    .system-map { position:relative; min-height:420px; }
+    .faq-list { display:grid; gap:12px; margin-top:32px; }
+    .faq-list details { padding:20px 24px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.025); }
+    .faq-list summary { color:var(--text); font-weight:750; cursor:pointer; }
+    .faq-list details p { margin:12px 0 0; color:var(--muted); }
+    .integration { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:40px; align-items:center; }
+    .system-map { position:relative; width:100%; min-width:0; min-height:420px; }
     .core { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:170px; height:170px; border-radius:38px; display:grid; place-items:center; text-align:center; background:linear-gradient(135deg,rgba(83,224,194,.16),rgba(105,167,255,.16)); border:1px solid rgba(255,255,255,.13); box-shadow:0 30px 70px rgba(0,0,0,.24); font-weight:900; }
     .system { position:absolute; padding:11px 14px; border:1px solid var(--line); border-radius:13px; background:#0d1a2b; color:#b9c8d7; font-size:.8rem; box-shadow:0 10px 30px rgba(0,0,0,.18); }
     .s1{left:2%;top:14%}.s2{right:4%;top:9%}.s3{left:0;bottom:16%}.s4{right:0;bottom:18%}.s5{left:38%;bottom:0}
@@ -209,7 +251,7 @@
     @media (max-width: 980px) {
       .nav-links { display:none; }
       .about-mobile-trigger { display:inline-flex; }
-      .hero-grid, .integration { grid-template-columns:1fr; }
+      .hero-grid, .integration { grid-template-columns:minmax(0,1fr); }
       .hero { padding-top:60px; }
       .product-shell { max-width:760px; }
       .problem-grid { grid-template-columns:1fr; }
@@ -258,12 +300,13 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="CaseFlow AI Startseite">
-        <span class="brand-mark"></span><span>CaseFlow AI</span>
+        <span class="brand-mark" aria-hidden="true"></span><span>CaseFlow AI</span>
       </a>
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="#problem">Warum CaseFlow</a>
         <a href="#ablauf">So funktioniert's</a>
         <a href="#usecases">Anwendungsfälle</a>
+        <a href="#faq">FAQ</a>
         <a href="#integration">Integration</a>
       </nav>
       <div class="nav-actions">
@@ -280,7 +323,7 @@
     </div>
     <div class="about-panel wrap" id="about-panel" aria-label="Über mich" hidden>
       <div class="about-copy">
-        <img class="about-portrait" src="assets/johann-kern.png" alt="Porträt von Johann Kern" />
+        <img class="about-portrait" src="assets/johann-kern.png" alt="Porträt von Johann Kern" width="170" height="178" loading="lazy" />
         <p>Mein Name ist Johann Kern. Ich bin in der technischen Redaktion im Sondermaschinenbau tätig und auf die Erstellung präziser Betriebs- und Anlagendokumentationen für anspruchsvolle Produktionsanlagen spezialisiert, insbesondere in der Automobilindustrie.</p>
         <p>Durch meine langjährige Erfahrung in Programmierung, Inbetriebnahme und Produktionsoptimierung sowie mehrfache Einsätze in China verbinde ich technisches Verständnis mit praktischer Prozesserfahrung.</p>
         <p>Darüber hinaus habe ich eigenverantwortlich komplexe Softwarelösungen zur Automatisierung geschäftskritischer Geschäftsprozesse entwickelt – von der Provisionsabrechnung und Bankenlogistik bis hin zu Reporting und Datenanalyse. Mein technisches Spektrum reicht dabei von Microsoft Access und VBA, C++ bis hin zu Python-KI.</p>
@@ -294,18 +337,18 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow"><span class="dot"></span> KI für Beschaffungsprozesse im Handwerk</div>
-          <h1>Weniger Büro.<br><span>Mehr Zeit fürs Handwerk.</span></h1>
-          <p class="hero-copy">CaseFlow unterstützt Sie dabei, Auftragsbestätigungen zu prüfen, Rechnungen und Belege zu bearbeiten sowie Lieferanten und Nachweise im Blick zu behalten.</p>
+          <div class="eyebrow"><span class="dot"></span> Geplante Beschaffungssoftware für Handwerk und KMU</div>
+          <h1>Beschaffung im Handwerk.<br><span>Dokumente im Blick.</span></h1>
+          <p class="hero-copy">CaseFlow AI ist in Entwicklung. Die geplante Dokumentenautomatisierung soll Handwerksbetriebe und KMU dabei unterstützen, Auftragsbestätigungen zu prüfen, Rechnungen abzugleichen und Lieferantennachweise zu verwalten – als Ergänzung zur bestehenden Handwerkersoftware und Büroorganisation.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#demo">15-Minuten-Demo anfragen →</a>
+            <a class="btn btn-primary" href="#demo">Unverbindlich anfragen →</a>
             <a class="btn btn-ghost" href="#ablauf">So funktioniert CaseFlow</a>
           </div>
-          <div class="hero-note">Keine neue Komplettsoftware. CaseFlow ergänzt Ihre bestehende Büro- und Unternehmenssoftware.</div>
+          <div class="hero-note">V1-Fokus: Procurement. CaseFlow soll bestehende Büro- und Unternehmenssoftware ergänzen, nicht ersetzen.</div>
           <div class="trust-row">
-            <span><i class="check">✓</i> Weniger Abtippen</span>
-            <span><i class="check">✓</i> Weniger Nachfassen</span>
-            <span><i class="check">✓</i> Klare Verantwortlichkeiten</span>
+            <span><i class="check">✓</i> Datenübernahme vereinfachen (geplant)</span>
+            <span><i class="check">✓</i> Nachweise im Blick behalten (geplant)</span>
+            <span><i class="check">✓</i> Prüfschritte strukturieren (geplant)</span>
           </div>
         </div>
 
@@ -314,7 +357,7 @@
           <div class="app">
             <div class="app-top">
               <div class="traffic"><i></i><i></i><i></i></div>
-              <div class="app-title">Beispielansicht · Vorgang AB-2026-10482</div>
+              <div class="app-title">Konzeptansicht · fiktives Beispiel</div>
               <div style="width:35px"></div>
             </div>
             <div class="app-body">
@@ -330,7 +373,7 @@
               </aside>
               <div class="main-panel">
                 <div class="case-head">
-                  <div><p>Auftragsbestätigung</p><h3>Nordwerk GmbH</h3><p>Bestellung #45008291</p></div>
+                  <div><p>Auftragsbestätigung</p><p class="mockup-heading">Beispiellieferant</p><p>Beispielbestellung</p></div>
                   <span class="status">Prüfung erforderlich</span>
                 </div>
                 <div class="metrics">
@@ -339,7 +382,7 @@
                   <div class="metric"><small>Zahlungsziel</small><strong>30 Tage</strong></div>
                 </div>
                 <div class="notice">
-                  <div class="notice-title">2 Abweichungen erkannt</div>
+                  <div class="notice-title">Beispiel: mögliche Abweichung</div>
                   <div class="diff">
                     <div><small>Bestellung</small><strong>18.050,00 €</strong></div>
                     <div><small>Bestätigung</small><strong style="color:#ffb1b1">18.430,00 €</strong></div>
@@ -350,9 +393,9 @@
                 <div class="task"><span>Preisabweichung prüfen</span><b>OFFEN</b></div>
                 <div class="task"><span>Liefertermin bestätigen</span><b>OFFEN</b></div>
                 <div class="app-actions">
-                  <button class="mini-btn primary">Freigeben</button>
-                  <button class="mini-btn">Rückfrage</button>
-                  <button class="mini-btn">Ablehnen</button>
+                  <span class="mini-btn primary">Freigabe prüfen</span>
+                  <span class="mini-btn">Rückfrage</span>
+                  <span class="mini-btn">Ablehnung prüfen</span>
                 </div>
               </div>
             </div>
@@ -364,8 +407,8 @@
     <section id="problem">
       <div class="wrap">
         <div class="section-kicker">Der Büroalltag</div>
-        <h2 class="section-title">Ihr Betrieb läuft.<br>Das Büro läuft hinterher.</h2>
-        <p class="section-lead">Auftragsbestätigungen, Rechnungen, Belege und Lieferantennachweise kommen per E-Mail, PDF, Scan oder Upload. Danach beginnt oft die eigentliche Handarbeit – mit Prüfung, Zuordnung und Nachverfolgung.</p>
+        <h2 class="section-title">Beschaffung im Handwerk:<br>Dokumente statt Papierstapel.</h2>
+        <p class="section-lead">Auftragsbestätigungen prüfen, Rechnungen im Handwerk bearbeiten und Lieferantennachweise verwalten: Diese wiederkehrenden Beschaffungsaufgaben soll CaseFlow künftig strukturiert unterstützen. Das Produkt ist noch in Entwicklung.</p>
         <div class="problem-grid">
           <article class="card reveal"><div class="icon">01</div><h3>Dokumente lesen & Daten abtippen</h3><p>Bestellnummern, Beträge, Termine oder Lieferanteninformationen werden manuell aus PDFs übernommen.</p></article>
           <article class="card reveal"><div class="icon">02</div><h3>Abweichungen selbst suchen</h3><p>Preise, Mengen und Liefertermine müssen mit Bestellungen oder vorhandenen Daten verglichen werden.</p></article>
@@ -385,13 +428,13 @@
           </div>
           <div class="compare-arrow">→</div>
           <div class="compare-col after">
-            <h3>Mit CaseFlow</h3>
+            <h3>Geplantes Zielbild</h3>
             <div class="compare-list">
-              <div class="compare-item">✓ Eingang automatisch erkennen</div>
-              <div class="compare-item">✓ Daten automatisch auslesen</div>
-              <div class="compare-item">✓ Regeln und Abweichungen prüfen</div>
-              <div class="compare-item">✓ Aufgaben automatisch verteilen</div>
-              <div class="compare-item">✓ Nur echte Ausnahmen entscheiden</div>
+              <div class="compare-item">✓ Eingang automatisch erkennen (geplant)</div>
+              <div class="compare-item">✓ Daten auslesen (geplant)</div>
+              <div class="compare-item">✓ Abweichungen zur Bestellung markieren (geplant)</div>
+              <div class="compare-item">✓ Prüfschritte vorbereiten (geplant)</div>
+              <div class="compare-item">✓ Entscheidungen bleiben beim Team</div>
             </div>
           </div>
         </div>
@@ -400,33 +443,32 @@
 
     <section id="ablauf">
       <div class="wrap">
-        <div class="section-kicker">Vom Eingang zum erledigten Vorgang</div>
-        <h2 class="section-title">Eine E-Mail kommt rein.<br>CaseFlow macht den Rest bereit.</h2>
-        <p class="section-lead">Die KI übernimmt repetitive Schritte. Geschäftskritische Entscheidungen bleiben bei Ihren Mitarbeitern.</p>
+        <div class="section-kicker">Geplanter Ablauf für Procurement V1</div>
+        <h2 class="section-title">Ablauf für Beschaffung:<br>geplante Prüfschritte.</h2>
+        <p class="section-lead">Für V1 ist ein Procurement-Ablauf vorgesehen. Welche Automatisierungen tatsächlich verfügbar sein werden, steht erst nach Entwicklung und Erprobung fest; Entscheidungen sollen bei den Mitarbeitenden bleiben.</p>
         <div class="flow">
-          <div class="flow-step reveal"><div class="flow-num">1</div><h4>Eingang erfassen</h4><p>E-Mail, PDF, Scan, Upload oder Formular.</p></div>
-          <div class="flow-step reveal"><div class="flow-num">2</div><h4>Inhalt verstehen</h4><p>Dokumenttyp, Beträge, Nummern, Termine und weitere Daten erkennen.</p></div>
-          <div class="flow-step reveal"><div class="flow-num">3</div><h4>Automatisch prüfen</h4><p>Pflichtangaben, Abweichungen, Fristen und Regeln kontrollieren.</p></div>
-          <div class="flow-step reveal"><div class="flow-num">4</div><h4>Aufgabe erzeugen</h4><p>Nur wenn etwas geklärt, freigegeben oder korrigiert werden muss.</p></div>
-          <div class="flow-step reveal"><div class="flow-num">5</div><h4>Ergebnis weitergeben</h4><p>Daten und Status an vorhandene Systeme übergeben.</p></div>
+          <div class="flow-step reveal"><div class="flow-num">1</div><h3>Eingang erfassen</h3><p>E-Mail und Beschaffungsdokumente strukturiert aufnehmen (geplant).</p></div>
+          <div class="flow-step reveal"><div class="flow-num">2</div><h3>Inhalt auslesen</h3><p>Dokumenttyp, Beträge, Bestellnummern und Termine erfassen (geplant).</p></div>
+          <div class="flow-step reveal"><div class="flow-num">3</div><h3>Abgleichen</h3><p>Auftragsbestätigung und Rechnungsdaten mit Bestellinformationen vergleichen (geplant).</p></div>
+          <div class="flow-step reveal"><div class="flow-num">4</div><h3>Prüfung vorbereiten</h3><p>Abweichungen und offene Punkte für das Team kenntlich machen (geplant).</p></div>
+          <div class="flow-step reveal"><div class="flow-num">5</div><h3>Weiterbearbeitung</h3><p>Geplante Übergabe an vorhandene Systeme; Schnittstellen sind noch nicht verfügbar.</p></div>
         </div>
       </div>
     </section>
 
     <section id="usecases">
       <div class="wrap">
-        <div class="section-kicker">Konkreter Nutzen</div>
-        <h2 class="section-title">Keine KI-Spielerei.<br>Arbeit, die heute wirklich anfällt.</h2>
-        <p class="section-lead">CaseFlow setzt dort an, wo im Büroalltag Zeit verloren geht: bei Beschaffungsdokumenten, Lieferantennachweisen und der strukturierten Bearbeitung von Datenschutzanfragen.</p>
+        <div class="section-kicker">Procurement V1 in Entwicklung</div>
+        <h2 class="section-title">V1-Fokus Procurement:<br>Beschaffung im Handwerksbetrieb.</h2>
+        <p class="section-lead">Die geplante Beschaffungssoftware soll Auftragsbestätigungen, Rechnungsprüfung im Handwerk und Lieferantennachweise adressieren. Weitere Anwendungsfälle sind nachrangige Ideen und noch nicht umgesetzt.</p>
         <div class="usecases">
-          <article class="usecase reveal"><div class="usecase-head"><h3>Auftragsbestätigungen</h3><span class="tag">Einkauf</span></div><ul><li>Bestellnummer und Lieferant automatisch erkennen</li><li>Preise, Mengen und Liefertermine vergleichen</li><li>Abweichungen hervorheben</li><li>Nur relevante Fälle zur Prüfung geben</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Rechnungen & Belege</h3><span class="tag">Büro</span></div><ul><li>Rechnungsdaten automatisch auslesen</li><li>Bestellnummer und Beträge zuordnen</li><li>Freigaben strukturiert einholen</li><li>Offene oder überfällige Fälle anzeigen</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Lieferanten & Nachweise</h3><span class="tag">Beschaffung</span></div><ul><li>Fehlende Unterlagen erkennen</li><li>Zertifikate und Nachweise zentral zuordnen</li><li>Ablaufdaten überwachen</li><li>Wiedervorlagen automatisch erzeugen</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Mängel & Reklamationen</h3><span class="tag">Service</span></div><ul><li>E-Mails, Fotos und Dokumente einem Vorgang zuordnen</li><li>Verantwortliche und Fristen festlegen</li><li>Status jederzeit sichtbar machen</li><li>Bearbeitung nachvollziehbar dokumentieren</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Strukturierte Dokumentenablage</h3><span class="tag">Büroalltag</span></div><ul><li>Dokumente automatisch klassifizieren und strukturiert ablegen</li><li>Zugriffsrechte und Verantwortlichkeiten nachvollziehbar steuern</li><li>Aufbewahrungs- und Löschfristen abbilden</li><li>Dokumente schnell finden, statt in Postfächern und Ordnern zu suchen</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Dokumentenautomatisierung</h3><span class="tag">Automation</span></div><ul><li>Dokumente aus Vorlagen und vorhandenen Daten erzeugen</li><li>Standardtexte, Anschreiben und Formulare automatisch vorbereiten</li><li>Freigaben und Versand in definierte Workflows einbinden</li><li>Wiederkehrende Dokumentationsarbeit deutlich reduzieren</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Immobilien & Objektverwaltung</h3><span class="tag">Immobilien</span></div><ul><li>Mietverträge, Übergabeprotokolle und Objektunterlagen zuordnen</li><li>Fristen, Wartungen und fehlende Nachweise überwachen</li><li>Anfragen, Schäden und Dienstleisterkommunikation bündeln</li><li>Dokumenten- und Vorgangshistorie je Objekt nachvollziehbar halten</li></ul></article>
-          <article class="usecase reveal"><div class="usecase-head"><h3>Datenschutzanfragen nach DSGVO</h3><span class="tag">DSGVO</span></div><ul><li>Anfragen wie Auskunft, Löschung oder Berichtigung strukturiert erfassen</li><li>Verantwortliche und beteiligte Fachbereiche einbinden</li><li>Fristen, Aufgaben und Erinnerungen im Blick behalten</li><li>Bearbeitung und Entscheidungen nachvollziehbar dokumentieren</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Auftragsbestätigungen prüfen</h3><span class="tag">Procurement V1</span></div><ul><li>Bestellnummern und Lieferantendaten auslesen (geplant)</li><li>Preise, Mengen und Liefertermine mit Bestellungen abgleichen (geplant)</li><li>Mögliche Abweichungen für die manuelle Prüfung markieren (geplant)</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Rechnungsprüfung im Handwerk</h3><span class="tag">Procurement V1</span></div><ul><li>Rechnungsdaten erfassen und zuordnen (geplant)</li><li>Beträge mit Bestell- oder Lieferscheindaten vergleichen (geplant)</li><li>Prüfung und Freigabe durch Mitarbeitende vorsehen</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Lieferantennachweise verwalten</h3><span class="tag">Procurement V1</span></div><ul><li>Unterlagen Lieferanten zuordnen (geplant)</li><li>Fehlende Nachweise und Ablaufdaten kenntlich machen (geplant)</li><li>Erinnerungen und Wiedervorlagen sind als Konzept vorgesehen</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Mängel & Reklamationen</h3><span class="tag">Weitere Idee</span></div><ul><li>Zuordnung von E-Mails, Fotos und Dokumenten ist denkbar</li><li>Verantwortlichkeiten und Fristen könnten abgebildet werden</li><li>Noch nicht Teil eines verfügbaren Produkts</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Dokumentenablage & Büroorganisation</h3><span class="tag">Weitere Idee</span></div><ul><li>Strukturierte Ablage und Dokumentenautomatisierung sind mögliche spätere Themen</li><li>KI-Büroorganisation ist noch kein verfügbarer Leistungsumfang</li><li>Funktionen und Umfang sind nicht festgelegt</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Immobilien & Objektverwaltung</h3><span class="tag">Weitere Idee</span></div><ul><li>Objektunterlagen und Nachweise zuordnen</li><li>Fristen und Wartungen im Blick behalten</li><li>Ein möglicher späterer Anwendungsfall, nicht Teil von V1</li></ul></article>
+          <article class="usecase reveal"><div class="usecase-head"><h3>Datenschutzanfragen nach DSGVO</h3><span class="tag">Weitere Idee</span></div><ul><li>Anfragen wie Auskunft, Löschung oder Berichtigung erfassen</li><li>Fristen und Zuständigkeiten unterstützen</li><li>Eine mögliche spätere Idee, keine verfügbare Funktion oder Compliance-Zusage</li></ul></article>
         </div>
       </div>
     </section>
@@ -434,8 +476,8 @@
     <section id="integration">
       <div class="wrap integration">
         <div>
-          <div class="section-kicker">Passt in Ihre bestehende IT</div>
-          <h2 class="section-title">Ihre Software bleibt.<br>CaseFlow übernimmt die Arbeit dazwischen.</h2>
+          <div class="section-kicker">Geplante Einordnung in Ihre bestehende IT</div>
+          <h2 class="section-title">Ihre Software bleibt.<br>Geplant ist die Prozessschicht dazwischen.</h2>
           <p class="section-lead">CaseFlow ist nicht als Ersatz für ERP, Buchhaltung oder Handwerkersoftware gedacht. Die Plattform soll Beschaffungsdokumente, Mitarbeiter und vorhandene Systeme verbinden.</p>
           <div class="trust-row" style="margin-top:28px">
             <span>REST API & Webhooks (geplant)</span>
@@ -455,17 +497,53 @@
       </div>
     </section>
 
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-kicker">Häufige Fragen</div>
+        <h2 class="section-title">CaseFlow AI für Handwerk und KMU</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Wie prüfe ich Auftragsbestätigungen automatisch?</summary>
+            <p>Ein geplantes CaseFlow-Modul soll Daten aus Auftragsbestätigungen und Bestellungen erfassen und mögliche Abweichungen für die Prüfung markieren. Das Produkt ist noch in Entwicklung; eine automatische Prüfung ist derzeit nicht verfügbar.</p>
+          </details>
+          <details>
+            <summary>Ersetzt CaseFlow meine Handwerkersoftware?</summary>
+            <p>Nein. CaseFlow soll bestehende Handwerkersoftware, ERP- und Buchhaltungssysteme ergänzen. Konkrete Integrationen sind noch nicht verfügbar; Schnittstellen sind geplant.</p>
+          </details>
+          <details>
+            <summary>Wie soll die Rechnungsprüfung im Handwerk funktionieren?</summary>
+            <p>Geplant ist, Rechnungsdaten zu erfassen und mit Bestell- oder Lieferscheininformationen abzugleichen. Umfang und Zuverlässigkeit stehen noch nicht fest; die fachliche Prüfung und Freigabe sollen beim Betrieb bleiben.</p>
+          </details>
+          <details>
+            <summary>Kann ich Lieferantennachweise mit CaseFlow verwalten?</summary>
+            <p>Die Zuordnung von Lieferantenunterlagen sowie Hinweise auf fehlende Nachweise und Ablaufdaten sind als Funktionen vorgesehen. Sie sind noch nicht Teil eines verfügbaren Produkts.</p>
+          </details>
+          <details>
+            <summary>Wie funktioniert die Datenverarbeitung nach DSGVO?</summary>
+            <p>CaseFlow als Produkt ist noch nicht gebaut; konkrete Produktdatenverarbeitungen und technische Schutzmaßnahmen stehen daher nicht fest. Auf dieser Website öffnet das Anfrageformular lediglich Ihr E-Mail-Programm; Details zum Hosting und zur Anfrage finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+          </details>
+          <details>
+            <summary>Ist CaseFlow bereits verfügbar oder gibt es eine Live-Demo?</summary>
+            <p>Nein. CaseFlow ist in Entwicklung und derzeit nicht als funktionsfähige Software oder Live-Demo verfügbar. Die Anfrage dient dazu, Interesse an den geplanten Abläufen zu bekunden.</p>
+          </details>
+          <details>
+            <summary>Was kostet CaseFlow?</summary>
+            <p>Preise stehen noch nicht fest. Produktumfang und Geschäftsmodell sind noch in Entwicklung.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="cta" id="demo">
       <div class="wrap">
         <div class="cta-box reveal">
           <div class="cta-intro">
-            <div class="cta-kicker">Unverbindlich & kostenlos</div>
+            <div class="cta-kicker">Unverbindliche Anfrage</div>
             <h2>Demo anfordern</h2>
-            <p>Sehen Sie in einer persönlichen Vorführung, wie CaseFlow die Prüfung von Auftragsbestätigungen, Rechnungen und Lieferantennachweisen unterstützen soll.</p>
+            <p>Fragen Sie nach dem geplanten V1-Ablauf für Beschaffung im Handwerk. Eine funktionsfähige Produktdemo ist derzeit noch nicht verfügbar.</p>
             <ul class="cta-benefits">
-              <li>Beispielablauf von der Auftragsbestätigung bis zur Prüfung</li>
-              <li>Beispiele zu Rechnungen, Belegen, Lieferantennachweisen und Datenschutzanfragen</li>
-              <li>Rückmeldung in der Regel innerhalb von zwei Werktagen</li>
+              <li>Gespräch zum geplanten Ablauf für Auftragsbestätigungen</li>
+              <li>Fragen zum geplanten V1-Umfang und Entwicklungsstand</li>
             </ul>
           </div>
           <form class="demo-form" id="demo-form">
@@ -530,7 +608,7 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner"><div>© 2026 CaseFlow AI</div><div>Prozessunterstützung für Beschaffungsdokumente</div><nav class="footer-links" aria-label="Rechtliche Informationen"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div>
+    <div class="wrap footer-inner"><div>© 2026 CaseFlow AI</div><div>Geplante Beschaffungssoftware für Handwerk und KMU</div><nav class="footer-links" aria-label="Rechtliche Informationen"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div>
   </footer>
 
   <script>
@@ -726,6 +804,99 @@
       'Immobilien': 'Real estate'
     };
 
+    Object.assign(translations, {
+      'FAQ': 'FAQ',
+      'Geplante Beschaffungssoftware für Handwerk und KMU': 'Planned procurement software for trades and SMEs',
+      'Freigabe prüfen': 'Review approval',
+      'Ablehnung prüfen': 'Review rejection',
+      'Ihre Software bleibt.': 'Keep your software.',
+      'Geplant ist die Prozessschicht dazwischen.': 'A workflow layer in between is planned.',
+      'Datenübernahme vereinfachen (geplant)': 'Simplify data entry (planned)',
+      'Nachweise im Blick behalten (geplant)': 'Keep track of records (planned)',
+      'Prüfschritte strukturieren (geplant)': 'Structure review steps (planned)',
+      'Beschaffung im Handwerk.': 'Procurement for the trades.',
+      'Dokumente im Blick.': 'Documents in view.',
+      'CaseFlow AI ist in Entwicklung. Die geplante Dokumentenautomatisierung soll Handwerksbetriebe und KMU dabei unterstützen, Auftragsbestätigungen zu prüfen, Rechnungen abzugleichen und Lieferantennachweise zu verwalten – als Ergänzung zur bestehenden Handwerkersoftware und Büroorganisation.': 'CaseFlow AI is in development. Its planned document automation is intended to help trade businesses and SMEs review order confirmations, compare invoices, and manage supplier records, complementing existing trade software and office processes.',
+      'Unverbindlich anfragen →': 'Make a no-obligation inquiry →',
+      'V1-Fokus: Procurement. CaseFlow soll bestehende Büro- und Unternehmenssoftware ergänzen, nicht ersetzen.': 'V1 focus: procurement. CaseFlow is intended to complement, not replace, existing business software.',
+      'Konzeptansicht · fiktives Beispiel': 'Concept preview · fictional example',
+      'Beispiellieferant': 'Example supplier',
+      'Beispielbestellung': 'Example order',
+      'Beispiel: mögliche Abweichung': 'Example: possible discrepancy',
+      'Beschaffung im Handwerk:': 'Procurement for the trades:',
+      'Dokumente statt Papierstapel.': 'Documents, not paperwork.',
+      'Auftragsbestätigungen prüfen, Rechnungen im Handwerk bearbeiten und Lieferantennachweise verwalten: Diese wiederkehrenden Beschaffungsaufgaben soll CaseFlow künftig strukturiert unterstützen. Das Produkt ist noch in Entwicklung.': 'Reviewing order confirmations, processing invoices, and managing supplier records are recurring procurement tasks CaseFlow is intended to support. The product is still in development.',
+      'Geplantes Zielbild': 'Planned workflow',
+      '✓ Eingang automatisch erkennen (geplant)': '✓ Automatically identify incoming documents (planned)',
+      '✓ Daten auslesen (geplant)': '✓ Extract data (planned)',
+      '✓ Abweichungen zur Bestellung markieren (geplant)': '✓ Flag order discrepancies (planned)',
+      '✓ Prüfschritte vorbereiten (geplant)': '✓ Prepare review steps (planned)',
+      '✓ Entscheidungen bleiben beim Team': '✓ Decisions remain with your team',
+      'Ablauf für Beschaffung:': 'Procurement workflow:',
+      'geplante Prüfschritte.': 'planned review steps.',
+      'Geplanter Ablauf für Procurement V1': 'Planned workflow for procurement V1',
+      'Procurement V1 in Entwicklung': 'Procurement V1 in development',
+      'Für V1 ist ein Procurement-Ablauf vorgesehen. Welche Automatisierungen tatsächlich verfügbar sein werden, steht erst nach Entwicklung und Erprobung fest; Entscheidungen sollen bei den Mitarbeitenden bleiben.': 'A procurement workflow is planned for V1. Which automations will actually be available can only be determined after development and testing; decisions are intended to remain with staff.',
+      'Inhalt auslesen': 'Extract document data',
+      'E-Mail und Beschaffungsdokumente strukturiert aufnehmen (geplant).': 'Structured intake of email and procurement documents (planned).',
+      'Dokumenttyp, Beträge, Bestellnummern und Termine erfassen (geplant).': 'Identify document type, amounts, order numbers, and dates (planned).',
+      'Abgleichen': 'Compare records',
+      'Auftragsbestätigung und Rechnungsdaten mit Bestellinformationen vergleichen (geplant).': 'Compare order confirmations and invoice data with order details (planned).',
+      'Prüfung vorbereiten': 'Prepare for review',
+      'Abweichungen und offene Punkte für das Team kenntlich machen (geplant).': 'Flag discrepancies and open items for the team (planned).',
+      'Weiterbearbeitung': 'Continue processing',
+      'Geplante Übergabe an vorhandene Systeme; Schnittstellen sind noch nicht verfügbar.': 'Handover to existing systems is planned; integrations are not yet available.',
+      'V1-Fokus Procurement:': 'V1 procurement focus:',
+      'Beschaffung im Handwerksbetrieb.': 'Procurement for trade businesses.',
+      'Die geplante Beschaffungssoftware soll Auftragsbestätigungen, Rechnungsprüfung im Handwerk und Lieferantennachweise adressieren. Weitere Anwendungsfälle sind nachrangige Ideen und noch nicht umgesetzt.': 'The planned procurement software is intended to address order confirmations, invoice review, and supplier records for trade businesses. Other use cases are secondary ideas and have not been implemented.',
+      'Procurement V1': 'V1 procurement',
+      'Weitere Idee': 'Future idea',
+      'Bestellnummern und Lieferantendaten auslesen (geplant)': 'Extract order numbers and supplier data (planned)',
+      'Preise, Mengen und Liefertermine mit Bestellungen abgleichen (geplant)': 'Compare prices, quantities, and delivery dates with orders (planned)',
+      'Mögliche Abweichungen für die manuelle Prüfung markieren (geplant)': 'Flag possible discrepancies for manual review (planned)',
+      'Rechnungsprüfung im Handwerk': 'Invoice review for trade businesses',
+      'Rechnungsdaten erfassen und zuordnen (geplant)': 'Capture and match invoice data (planned)',
+      'Beträge mit Bestell- oder Lieferscheindaten vergleichen (geplant)': 'Compare amounts with order or delivery note data (planned)',
+      'Prüfung und Freigabe durch Mitarbeitende vorsehen': 'Plan for staff review and approval',
+      'Lieferantennachweise verwalten': 'Manage supplier records',
+      'Unterlagen Lieferanten zuordnen (geplant)': 'Match documents to suppliers (planned)',
+      'Fehlende Nachweise und Ablaufdaten kenntlich machen (geplant)': 'Flag missing records and expiry dates (planned)',
+      'Erinnerungen und Wiedervorlagen sind als Konzept vorgesehen': 'Reminders and follow-ups are part of the concept',
+      'Zuordnung von E-Mails, Fotos und Dokumenten ist denkbar': 'Matching emails, photos, and documents is being considered',
+      'Verantwortlichkeiten und Fristen könnten abgebildet werden': 'Responsibilities and deadlines could be tracked',
+      'Noch nicht Teil eines verfügbaren Produkts': 'Not part of an available product',
+      'Dokumentenablage & Büroorganisation': 'Document management and office workflows',
+      'Strukturierte Ablage und Dokumentenautomatisierung sind mögliche spätere Themen': 'Structured filing and document automation may be considered later',
+      'KI-Büroorganisation ist noch kein verfügbarer Leistungsumfang': 'AI office workflows are not currently available',
+      'Funktionen und Umfang sind nicht festgelegt': 'Features and scope have not been defined',
+      'Objektunterlagen und Nachweise zuordnen': 'Match property documents and records',
+      'Fristen und Wartungen im Blick behalten': 'Track deadlines and maintenance',
+      'Ein möglicher späterer Anwendungsfall, nicht Teil von V1': 'A possible future use case, not part of V1',
+      'Eine mögliche spätere Idee, keine verfügbare Funktion oder Compliance-Zusage': 'A possible future idea, not an available feature or compliance claim',
+      'Geplante Einordnung in Ihre bestehende IT': 'Planned fit with your existing IT',
+      'Unverbindliche Anfrage': 'No-obligation inquiry',
+      'Fragen Sie nach dem geplanten V1-Ablauf für Beschaffung im Handwerk. Eine funktionsfähige Produktdemo ist derzeit noch nicht verfügbar.': 'Ask about the planned V1 procurement workflow for trade businesses. A working product demo is not currently available.',
+      'Gespräch zum geplanten Ablauf für Auftragsbestätigungen': 'Discuss the planned order confirmation workflow',
+      'Fragen zum geplanten V1-Umfang und Entwicklungsstand': 'Questions about the planned V1 scope and development status',
+      'Häufige Fragen': 'Frequently asked questions',
+      'CaseFlow AI für Handwerk und KMU': 'CaseFlow AI for trades and SMEs',
+      'Wie prüfe ich Auftragsbestätigungen automatisch?': 'How can I check order confirmations automatically?',
+      'Ein geplantes CaseFlow-Modul soll Daten aus Auftragsbestätigungen und Bestellungen erfassen und mögliche Abweichungen für die Prüfung markieren. Das Produkt ist noch in Entwicklung; eine automatische Prüfung ist derzeit nicht verfügbar.': 'A planned CaseFlow module is intended to capture data from order confirmations and orders and flag possible discrepancies for review. The product is still in development; automated checks are not currently available.',
+      'Ersetzt CaseFlow meine Handwerkersoftware?': 'Does CaseFlow replace my trade software?',
+      'Nein. CaseFlow soll bestehende Handwerkersoftware, ERP- und Buchhaltungssysteme ergänzen. Konkrete Integrationen sind noch nicht verfügbar; Schnittstellen sind geplant.': 'No. CaseFlow is intended to complement existing trade, ERP, and accounting software. Specific integrations are not yet available; interfaces are planned.',
+      'Wie soll die Rechnungsprüfung im Handwerk funktionieren?': 'How is invoice review for trade businesses planned to work?',
+      'Geplant ist, Rechnungsdaten zu erfassen und mit Bestell- oder Lieferscheininformationen abzugleichen. Umfang und Zuverlässigkeit stehen noch nicht fest; die fachliche Prüfung und Freigabe sollen beim Betrieb bleiben.': 'The plan is to capture invoice data and compare it with order or delivery note information. Scope and reliability have not yet been established; the business is intended to retain responsibility for review and approval.',
+      'Kann ich Lieferantennachweise mit CaseFlow verwalten?': 'Can I manage supplier records with CaseFlow?',
+      'Die Zuordnung von Lieferantenunterlagen sowie Hinweise auf fehlende Nachweise und Ablaufdaten sind als Funktionen vorgesehen. Sie sind noch nicht Teil eines verfügbaren Produkts.': 'Matching supplier documents and flagging missing records and expiry dates are planned features. They are not yet part of an available product.',
+      'Wie funktioniert die Datenverarbeitung nach DSGVO?': 'How will data processing work under the GDPR?',
+      'CaseFlow als Produkt ist noch nicht gebaut; konkrete Produktdatenverarbeitungen und technische Schutzmaßnahmen stehen daher nicht fest. Auf dieser Website öffnet das Anfrageformular lediglich Ihr E-Mail-Programm; Details zum Hosting und zur Anfrage finden Sie in der': 'The CaseFlow product has not been built yet, so its specific data processing and technical safeguards have not been established. On this website, the inquiry form only opens your email app; details about hosting and inquiries are in the',
+      'Datenschutzerklärung': 'Privacy policy',
+      'Ist CaseFlow bereits verfügbar oder gibt es eine Live-Demo?': 'Is CaseFlow available, or is there a live demo?',
+      'Nein. CaseFlow ist in Entwicklung und derzeit nicht als funktionsfähige Software oder Live-Demo verfügbar. Die Anfrage dient dazu, Interesse an den geplanten Abläufen zu bekunden.': 'No. CaseFlow is in development and is not currently available as working software or a live demo. The inquiry is a way to express interest in the planned workflows.',
+      'Was kostet CaseFlow?': 'How much does CaseFlow cost?',
+      'Preise stehen noch nicht fest. Produktumfang und Geschäftsmodell sind noch in Entwicklung.': 'Pricing has not yet been set. The product scope and business model are still in development.'
+    });
+
     const originalTextNodes = new Map();
     const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     while (textWalker.nextNode()) {
@@ -738,6 +909,8 @@
     const pageDescription = document.querySelector('meta[name="description"]');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
     const originalPageTitle = document.title;
     const originalPageDescription = pageDescription.content;
     const originalOgTitle = ogTitle.content;
@@ -756,17 +929,19 @@
       }
 
       document.title = language === 'en'
-        ? 'CaseFlow AI – Smarter procurement workflows for the trades.'
+        ? 'Procurement software for the trades | CaseFlow AI'
         : originalPageTitle;
       pageDescription.content = language === 'en'
-        ? 'CaseFlow AI helps trade businesses review order confirmations, process invoices and receipts, and keep track of supplier documents.'
+        ? 'Planned procurement software for trades and SMEs: order confirmations, invoice review, and supplier records. Request information.'
         : originalPageDescription;
       ogTitle.content = language === 'en'
-        ? 'CaseFlow AI – Smarter procurement workflows for the trades.'
+        ? 'Procurement software for the trades | CaseFlow AI'
         : originalOgTitle;
       ogDescription.content = language === 'en'
-        ? 'CaseFlow AI helps trade businesses review order confirmations, process invoices and receipts, and keep track of supplier documents.'
+        ? 'Planned procurement software for trades and SMEs: order confirmations, invoice review, and supplier records. Request information.'
         : originalOgDescription;
+      twitterTitle.content = ogTitle.content;
+      twitterDescription.content = ogDescription.content;
       demoTime.placeholder = language === 'en'
         ? 'e.g. next week, mornings'
         : originalTimePlaceholder;
